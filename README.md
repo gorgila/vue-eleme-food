@@ -37,6 +37,30 @@ $ npm run build
 The **app frontend** can be accessed at `http://localhost:9000`. 
 
 
+#### Examples
+
+##### City List, Food Search, & Shop
+<img src="https://github.com/gorgila/vue-eleme-food/raw/master/gifs/0-search-city-shops-open-shop.gif" width="640" />
+
+##### Footer Navigation & Shop Search
+<img src="https://github.com/gorgila/vue-eleme-food/raw/master/gifs/1-nav.gif" width="640" />
+
+##### Category Filtering & Shop Sorting
+<img src="https://github.com/gorgila/vue-eleme-food/raw/master/gifs/2-food%20category-filter-sort.gif" width="640" />
+
+##### Shop Detail & Ordering Food
+<img src="https://github.com/gorgila/vue-eleme-food/raw/master/gifs/3-shop-detail-and%20order-food.gif" width="640" />
+
+##### Order Confirmation & History
+<img src="https://github.com/gorgila/vue-eleme-food/raw/master/gifs/4-order-and-order-list.gif" width="640" />
+
+##### Account Management
+<img src="https://github.com/gorgila/vue-eleme-food/raw/master/gifs/5-account-featuers.gif" width="640" />
+
+##### Profile Features & Logout
+<img src="https://github.com/gorgila/vue-eleme-food/raw/master/gifs/6-profile-features.gif" width="640" />
+
+
 ------------
 #### ACKNOWLEDGEMENTS
 
@@ -50,4 +74,4 @@ Thanks to [@bailicangdu](https://github.com/bailicangdu). This project is based 
 ------------
 #### LICENSE
 
-[GPL]
+[GPL](https://github.com/gorgila/vue-eleme-food/blob/master/COPYING)
