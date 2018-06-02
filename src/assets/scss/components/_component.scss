@@ -1,0 +1,43 @@
+.filled-btn {
+    background-color: _statics(subBtnBgColor);
+    color: _statics(fontBrightColor);
+    font-size: 0.875rem;
+    border-radius: 0.25rem !important;
+    text-align: center;
+    border: none;
+    &.fade-btn {
+        opacity: 0.85;
+        @include vendor('transition', ('all 1s'));
+        &.font-opacity {
+            @include vendor('transition', ('all 1s'));
+            opacity: 1;
+        }
+    }
+    &.cancel-btn {
+        background-color: _statics(subBtnCancelBgColor);
+    }
+}
+
+.frame-btn {
+    font-size: 0.9375rem;
+    color: _statics(cardFontColor) !important;
+    border-color: _statics(cardFontColor) !important;
+    &.btn-outline-success:hover,
+    &.btn-outline-success:not(:disabled):not(.disabled):active {
+        color: _statics(btnHoverColor) !important;
+        background-color: transparent !important;
+        border-color: _statics(btnHoverColor) !important;
+    }
+}
+
+.app-input {
+    font-size: 0.875rem;
+    line-height: 2.5rem;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0.425rem;
+    margin-bottom: 0.425rem !important;
+    height: 2.5rem;
+    color: _statics(fontDarkColor);
+    font-family: _font(family);
+}

@@ -1,0 +1,38 @@
+{
+    "presets": [
+        "env",
+        "stage-2"
+    ],
+    "env": {
+        "production": {
+            "presets": [
+                ["env", {
+                    "targets": {
+                        "browsers": ["last 2 version", "ie 10"]
+                    },
+                    "modules": false,
+                    "debug": true
+                }]
+            ],
+            "plugins": [
+                "transform-runtime",
+                "transform-object-rest-spread"
+            ]
+        },
+        "development": {
+            "presets": [
+                ["env", {
+                    "targets": {
+                        "chrome": 56,
+                        "edge": 14
+                    },
+                    "modules": false,
+                    "debug": true
+                }]
+            ],
+            "plugins": [
+                "transform-object-rest-spread"
+            ]
+        }
+    }
+}

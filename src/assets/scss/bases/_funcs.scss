@@ -1,0 +1,15 @@
+@function _font($keys...) {
+    @return val($font, $keys...);
+}
+
+@function _themes($key...) {
+    @return map-get($themeMap, $key...);
+}
+
+@function _statics($keys...) {
+    @return val($statics, $keys...);
+}
+
+@function _duration($keys...) {
+    @return val($duration, $keys...);
+}

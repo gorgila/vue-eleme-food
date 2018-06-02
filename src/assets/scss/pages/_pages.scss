@@ -1,0 +1,4134 @@
+*:focus {
+    outline: none !important;
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    box-shadow: none !important;
+}
+
+@keyframes loading {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-50px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes ellipse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.3);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes shopPlaceholderBg {
+    0% {
+        opacity: 1
+    }
+    25% {
+        opacity: 0.5
+    }
+    50% {
+        opacity: 1
+    }
+    75% {
+        opacity: 0.5
+    }
+    100% {
+        opacity: 1
+    }
+}
+
+.loading-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    transform: translate(-50%, -50%);
+    .loading-image {
+        width: 100%;
+        height: 100%;
+        background: url('../images/loading-icon.png');
+        background-size: 2.5rem auto;
+        transform: translateY(0px);
+        animation: loading 0.6s infinite ease-in-out;
+        position: relative;
+        z-index: 11;
+    }
+    .loading-ellipse {
+        position: absolute;
+        width: 3.26rem;
+        height: 2rem;
+        top: 2.8rem;
+        left: -0.425rem;
+        z-index: 10;
+        animation: ellipse 0.6s infinite ease-in-out;
+    }
+}
+
+.shop-placeholder-bg-container {
+    animation: shopPlaceholderBg 2s infinite ease-in-out;
+    background-image: url('../images/shop-placeholder.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+.navbar {
+    background: _statics(navBgColor);
+    .navbar-brand {
+        font-weight: bold;
+        font-size: 1.5rem;
+        color: _statics(fontBrightColor);
+    }
+    .navbar-text,
+    .nav-item.msite-title {
+        @include vendor ('flex',
+        '1');
+    }
+    .nav-item .signin-text,
+    .nav-item .nav-link {
+        font-size: 0.75rem;
+        font-stretch: condensed;
+        color: _statics(fontBrightColor);
+        text-transform: uppercase;
+    }
+    .navbar-text,
+    .nav-item.msite-title .nav-link {
+        @include vendor ('flex',
+        '1');
+        padding-left: 0.625rem;
+        font-weight: bold;
+        font-size: 0.9275rem;
+        color: _statics(fontBrightColor);
+    }
+}
+
+.main-container {
+    padding-top: 3.4375rem;
+    &.msite-main {
+        padding-bottom: 3.6748rem;
+    }
+}
+
+.card {
+    background-color: _statics(cardBgColor);
+    border-radius: 0;
+}
+
+.auto-city-card {
+    margin-bottom: 1rem;
+    border: none;
+    border-bottom: 1px solid _statics(cardBorderColor);
+    &>.card-body {
+        padding: 0.525rem 1.25rem;
+        border-top: 1px solid _statics(cityBorderColor);
+        &>.city-tip span {
+            &:nth-child(1) {
+                color: _statics(fontDarklessColor);
+                font-stretch: condensed;
+                font-weight: bold;
+                font-size: 0.875rem;
+            }
+            &:nth-child(2) {
+                color: _statics(fontDarkColor);
+                font-stretch: condensed;
+                font-size: 0.675rem;
+            }
+        }
+    }
+    &>.card-footer {
+        border-top: 1px solid _statics(cityBorderColor);
+        background-color: transparent;
+        &>.auto-city {
+            color: _statics(fontDarklessColor);
+            text-transform: uppercase;
+        }
+    }
+}
+
+.home-city-card {
+    margin-bottom: 1rem;
+    border: none;
+    border-top: 1px solid _statics(cardBorderColor);
+    border-bottom: 1px solid _statics(cardBorderColor);
+    &>.card-header {
+        color: _statics(cardFontColor);
+        font-size: 0.925rem;
+        background-color: _statics(cardHeaderColor);
+        padding: 0.625rem 1rem;
+        &:first-child {
+            border-radius: 0;
+        }
+    }
+    &>.card-body {
+        .cities-container .row {
+            border: none;
+            border-bottom: 1px solid _statics(cityBorderColor);
+            &:last-child {
+                border-bottom: none;
+            }
+            div {
+                border: none;
+                border-right: 1px solid _statics(cityBorderColor);
+                line-height: 2;
+                &:nth-child(4n) {
+                    border-right: 0;
+                }
+                &:nth-child(4n+1) {
+                    border-left: 0;
+                }
+                &:hover {
+                    opacity: 0.8;
+                    background-color: _statics(cityHoverColor);
+                }
+                &>a {
+                    color: _statics(fontDarklessColor);
+                    font-size: 0.875rem;
+                    font-stretch: condensed;
+                    font-weight: lighter;
+                    text-transform: uppercase;
+                    &:focus,
+                    &:hover {
+                        text-decoration: none;
+                    }
+                    &.card-text-red {
+                        color: _statics(cardFontColor);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.city-form-card {
+    margin: 1rem;
+    border: 1px solid _statics(cardBorderColor);
+    .city-input input,
+    .search-input input {
+        font-size: 0.875rem;
+        line-height: 2.5rem;
+        padding-top: 0;
+        padding-bottom: 0;
+        height: 2.5rem;
+        color: _statics(fontDarkColor);
+        font-family: _font(family);
+    }
+}
+
+.search-history-card {
+    border: none;
+    border-top: 1px solid _statics(cardBorderColor);
+    border-bottom: 1px solid _statics(cardBorderColor);
+    &>.card-header {
+        color: _statics(cardFontColor);
+        font-size: 0.675rem;
+        background-color: _statics(cardHeaderColor);
+        padding: 0.375rem 1rem;
+        border-bottom: 1px solid _statics(cityBorderColor);
+        &:first-child {
+            border-radius: 0;
+        }
+    }
+    &>.card-body {
+        .notice-msg {
+            color: _statics(fontDarkColor);
+            font-size: 0.875rem;
+            padding: 0.475rem 0.9375rem;
+            font-weight: bold;
+        }
+        .row {
+            border: none;
+            color: _statics(fontDarkColor);
+            border-bottom: 1px solid _statics(cityBorderColor);
+            padding-top: 1rem;
+            padding-bottom: 0.475rem;
+            h4 {
+                font-weight: bold;
+            }
+            p {
+                color: _statics(fontGreyerColor);
+                font-size: 0.75rem;
+                margin-top: 0.425rem;
+            }
+            &.food-search-history-row {
+                padding-top: 0.475rem;
+            }
+        }
+    }
+    &>.card-footer {
+        padding: 0.425rem 1.25rem;
+        color: _statics(fontDarkColor);
+        font-size: 0.875rem;
+        font-stretch: condensed;
+        font-weight: bold;
+        text-align: center;
+    }
+}
+
+.shop-nav-card {
+    margin-bottom: 0.875rem;
+    border: none;
+    border-bottom: 1px solid _statics(cardBorderColor);
+    .has-slider {
+        overflow: hidden;
+        &>.slider {
+            width: 200%;
+            @include vendor('user-select',
+            'none');
+            &.is-animating {
+                @include vendor('transition',
+                ( 'transform 0.4s cubic-bezier( 0.5, 0, 0.5, 1 )'));
+            }
+            .food-cate-item {
+                width: 25%;
+                pointer-events: none;
+                text-decoration: none;
+                .figure {
+                    text-align: center;
+                    pointer-events: auto;
+                    .figure-img {
+                        width: 2.625rem;
+                        margin-top: 0.5rem;
+                    }
+                    .figure-caption {
+                        font-size: 0.725rem;
+                        color: _statics(fontDarkColor);
+                    }
+                }
+                &:hover {
+                    .figure-caption {
+                        color: _statics(fontGreyerColor);
+                    }
+                }
+            }
+        }
+        &>.slider-pagination {
+            text-align: center;
+            pointer-events: none;
+            &>* {
+                height: 0.525rem;
+                width: 0.525rem;
+                border-radius: 50%;
+                display: inline-block;
+                box-shadow: 0 0 0 2px transparentize(_statics(subBtnBgColor), 0.25);
+                margin-right: 0.25rem;
+                margin-left: 0.25rem;
+                @include vendor('transition',
+                ( 'background-color 0.25s ease-in-out'));
+                &.is-active {
+                    background-color: transparentize(_statics(subBtnBgColor), 0.25);
+                }
+            }
+        }
+    }
+}
+
+.rating-container {
+    width: 2.75rem;
+    height: 0.9735rem;
+    position: relative;
+    .star-overflow {
+        overflow: hidden;
+        position: relative;
+        height: 100%;
+    }
+    .star-container {
+        width: 2.75rem;
+        height: 0.9735rem;
+        position: absolute;
+        display: flex;
+        .grey-fill {
+            fill: #d1d1d1;
+        }
+        .highlight-fill {
+            fill: #ff9a0d;
+        }
+    }
+}
+
+.shops-card {
+    border: none;
+    border-top: 1px solid _statics(cardBorderColor);
+    border-bottom: 1px solid _statics(cardBorderColor);
+    &>.card-header {
+        color: _statics(cardFontColor);
+        font-size: 0.675rem;
+        background-color: _statics(cardHeaderColor);
+        padding: 0.375rem 1rem;
+        border-bottom: 1px solid _statics(cityBorderColor);
+        &>.fa {
+            margin-right: 0.25rem;
+        }
+        &:first-child {
+            border-radius: 0;
+        }
+    }
+    &>.card-body {
+        .row {
+            border: none;
+            color: _statics(fontDarkColor);
+            border-bottom: 1px solid _statics(cityBorderColor);
+            padding: 0.7rem 0.4rem;
+            align-items: center;
+            .shop-img {
+                width: 3.625rem;
+                height: 3.625rem;
+                display: block;
+            }
+            &>.col-9 {
+                &>.row {
+                    border: none;
+                    padding: 0;
+                    justify-content: space-between;
+                    align-items: center;
+                    .shop-title {
+                        color: _statics(fontDarkColor);
+                        font-weight: bold;
+                        font-size: 0.875rem;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        &.premium:before {
+                            content: 'PRIOR';
+                            display: inline-block;
+                            font-size: 0.425rem;
+                            color: _statics(fontBrightColor);
+                            background-color: _statics(premiumBgColor);
+                            padding: 0.125rem 0.25rem 0;
+                            margin-right: 0.25rem;
+                            border-radius: 0.1rem;
+                            font-weight: bold;
+                        }
+                    }
+                    .btn.support-icon {
+                        font-size: 0.725rem;
+                        background: transparent;
+                        border: 1px solid _statics(premiumBgColor);
+                        color: _statics(premiumBgColor);
+                        padding: 0.0625rem 0.375rem;
+                    }
+                    .rating {
+                        &>.rating-text {
+                            font-size: 0.475rem;
+                            color: _statics(fontGreyColor);
+                            margin-left: 0.25rem;
+                            &>.rating-num {
+                                color: _statics(ratingColor);
+                                font-weight: bold;
+                            }
+                        }
+                    }
+                    .delivery-mode {
+                        &>.btn {
+                            font-size: 0.425rem;
+                            padding: 0.1rem 0.25rem 0.0625rem;
+                            opacity: 1;
+                            &.btn-success.disabled {
+                                color: _statics(fontBrightColor);
+                                background-color: _statics(subBtnBgColor);
+                                border-color: _statics(subBtnBgColor);
+                            }
+                            &.btn-outline-success.disabled {
+                                color: _statics(subBtnBgColor);
+                                border-color: _statics(subBtnBgColor);
+                            }
+                        }
+                    }
+                    .delivery-info {
+                        font-size: 0.695rem;
+                        color: _statics(fontGreyerColor);
+                        &>.segmentation {
+                            color: _statics(fontDarkColor);
+                        }
+                    }
+                    .delivery-time {
+                        font-size: 0.695rem;
+                        color: transparentize( _statics(fontGreyColor), 0.15);
+                        &>.time-text {
+                            color: _statics(premiumBgColor);
+                        }
+                    }
+                }
+                &.search-result-item {
+                    &>.row {
+                        color: transparentize(_statics(fontDarklessColor), 0.125);
+                        font-size: 0.875rem;
+                        &>p {
+                            padding-bottom: 0.125rem;
+                            .visa-icon {
+                                font-style: italic;
+                                color: _statics(premiumBgColor);
+                                margin-left: 0.425rem;
+                            }
+                            &:last-child {
+                                margin-bottom: 0.375rem;
+                            }
+                        }
+                        .activity-item {
+                            color: _statics(fontGreyerColor);
+                            margin-top: 0.125rem;
+                            &>span {
+                                margin-right: 0.175rem;
+                                font-size: 0.675rem;
+                                &.activity-icon {
+                                    color: _statics(fontBrightColor);
+                                    padding: 0 0.125rem;
+                                    border-radius: 0.25rem;
+                                    margin-right: 0.375rem;
+                                }
+                                &.only-phone {
+                                    color: _statics(cardFontColor);
+                                }
+                            }
+                        }
+                        &:first-child {
+                            border-bottom: solid 1px _statics(cityBorderColor);
+                            margin-bottom: 0.325rem;
+                        }
+                    }
+                }
+            }
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+    }
+}
+
+.footer-menu {
+    color: _statics(fontDarkColor);
+    border: none;
+    border-top: 1px solid _statics(cardBorderColor);
+    background-color: _statics(footerBgColor);
+    .menu-item {
+        padding-top: 0.625rem;
+        padding-bottom: 0.425rem;
+        border-right: 1px solid transparentize(_statics(cardBorderColor), 0.5);
+        &:last-child {
+            border-right: none;
+        }
+        i {
+            font-size: 1.25rem;
+            padding-bottom: 0.25rem;
+        }
+        p {
+            font-size: 0.675rem;
+            font-stretch: condensed;
+        }
+    }
+}
+
+@include keyframes(dotMove) {
+    0% {
+        transform: scale(1)
+    }
+    25% {
+        transform: scale(.8)
+    }
+    50% {
+        transform: scale(1.1)
+    }
+    75% {
+        transform: scale(.9)
+    }
+    100% {
+        transform: scale(1)
+    }
+}
+
+.shop-container {
+    .router-slid-enter-active,
+    .router-slid-leave-active {
+        transition: all 0.4s;
+    }
+    .router-slid-enter,
+    .router-slid-leave-active {
+        transform: translate3d(2rem, 0, 0);
+        opacity: 0;
+    }
+    .fade-enter-active,
+    .fade-leave-active {
+        transition: opacity 0.5s;
+    }
+    .fade-enter,
+    .fade-leave-active {
+        opacity: 0;
+    }
+    .fade-choose-enter-active,
+    .fade-choose-leave-active {
+        transition: opacity 0.5s;
+    }
+    .fade-choose-leave,
+    .fade-choose-leave-active {
+        display: none;
+    }
+    .fade-choose-enter,
+    .fade-choose-leave-active {
+        opacity: 0;
+    }
+    #shop-init-container {
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 100%;
+        .shop-title-card {
+            border: none;
+            border-bottom: 1px solid _statics(cardBorderColor);
+            &>.card-body a {
+                border: none;
+                color: _statics(fontDarkColor);
+                padding: 0.4rem 1rem;
+                align-items: center;
+                .shop-img {
+                    width: 3.825rem;
+                    height: 3.825rem;
+                    display: block;
+                    margin-right: 1rem;
+                }
+                .shop-description {
+                    @include vendor ('flex',
+                    '1');
+                    h4 {
+                        font-weight: bold;
+                    }
+                    p {
+                        font-size: 0.695rem;
+                        color: _statics(fontGreyerColor);
+                    }
+                }
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+            &>.card-footer {
+                p {
+                    font-size: 0.725rem;
+                    font-stretch: condensed;
+                    &.ellipsis {
+                        font-stretch: normal;
+                        @include vendor ('flex',
+                        '1');
+                        text-align: left;
+                        span:first-child {
+                            padding: 0.125rem 0.175rem;
+                            border-radius: 0.15rem;
+                            color: _statics(fontBrightColor);
+                            margin-right: 0.175rem;
+                        }
+                    }
+                }
+                padding: 0.425rem 1rem;
+                color: _statics(fontDarkColor);
+                font-size: 0.875rem;
+                text-align: center;
+                border-top: 1px solid _statics(cityBorderColor);
+                background-color: transparent;
+            }
+        }
+        .shop-content-card {
+            border: none;
+            @include vendor('flex',
+            '1');
+            &>.card-header {
+                border-bottom: 1px solid _statics(cityBorderColor);
+                p {
+                    @include vendor('flex',
+                    '1');
+                    color: _statics(fontDarklessColor);
+                    font-size: 0.9375rem;
+                    font-stretch: semi-condensed;
+                    &.active-show {
+                        text-decoration: underline;
+                        color: _statics(highlightColor);
+                    }
+                }
+            }
+            &>.card-body {
+                overflow-y: scroll;
+                overflow-x: hidden;
+                padding-bottom: 4.185rem;
+                .products-container {
+                    .col-3,
+                    .col-9 {
+                        overflow-y: scroll;
+                        overflow-x: hidden;
+                    }
+                    .menu-container {
+                        color: _statics(fontGreyerColor);
+                        font-size: 0.875rem;
+                        padding: 0.75rem 1.225rem 0.75rem 0.775rem;
+                        margin: 0;
+                        border-right: 1px solid _statics(cityBorderColor);
+                        border-bottom: 1px solid _statics(cityBorderColor);
+                        border-left: 0.225rem solid _statics(fontBrightColor);
+                        position: relative;
+                        img {
+                            height: 1rem;
+                            margin-right: 0.625rem;
+                        }
+                        span:first-child {
+                            text-overflow: ellipsis;
+                            overflow: hidden;
+                            white-space: nowrap;
+                        }
+                        .cate-num {
+                            position: absolute;
+                            top: 0.1rem;
+                            right: 0.1rem;
+                            background-color: _statics(cateNumBgColor);
+                            text-align: center;
+                            line-height: 0.9375rem;
+                            border-radius: 50%;
+                            height: 0.9375rem;
+                            min-width: 0.9375rem;
+                            font-size: 0.625rem;
+                            color: _statics(fontBrightColor);
+                        }
+                        &.active-menu {
+                            border-left-color: _statics(activeBorderColor);
+                            span:first-child {
+                                font-weight: bold;
+                            }
+                        }
+                    }
+                    .food-container {
+                        &>.row {
+                            padding: 0.75rem 1rem;
+                            margin: 0;
+                            &>.row {
+                                margin: 0;
+                                padding: 0;
+                            }
+                            .food-list-header {
+                                width: 100%;
+                                padding-bottom: 0.75rem;
+                                span {
+                                    font-size: 0.725rem;
+                                    color: _statics(fontGreyerColor);
+                                    &:first-child {
+                                        font-size: 0.8925rem;
+                                        font-weight: bold;
+                                        color: _statics(fontDarklessColor);
+                                        margin-right: 0.5rem;
+                                    }
+                                    &:nth-child(2) {
+                                        @include vendor('flex',
+                                        '1');
+                                    }
+                                }
+                                i {
+                                    font-size: 0.875rem;
+                                    color: _statics(fontLightColor);
+                                }
+                            }
+                            .food-detail-info {
+                                padding: 0.45rem 0;
+                                img {
+                                    padding-right: 0.75rem;
+                                    width: 4.25rem;
+                                }
+                                .col-3,
+                                .col-9 {
+                                    padding: 0;
+                                }
+                                // &>.attr-container.new-attr {
+                                //     &:before {
+                                //         content: "";
+                                //         display: inline-block;
+                                //         width: 0;
+                                //         height: 0;
+                                //         border-style: solid;
+                                //         border-width: 2rem 2rem 0 0;
+                                //         border-color: #6980fe transparent transparent transparent;
+                                //     }
+                                // }
+                                .food-info-section {
+                                    color: _statics(fontDarkColor);
+                                    &>h3,
+                                    &>p {
+                                        text-overflow: ellipsis;
+                                        overflow: hidden;
+                                        white-space: nowrap;
+                                    }
+                                    &>p {
+                                        padding-bottom: 0.125rem;
+                                        &:nth-child(2) {
+                                            font-size: 0.725rem;
+                                            padding-left: 0.25rem;
+                                            padding-top: 0.125rem;
+                                            color: _statics(fontGreyestColor);
+                                        }
+                                        &:nth-child(3) {
+                                            font-size: 0.875rem;
+                                            font-stretch: semi-condensed;
+                                            padding-left: 0.25rem;
+                                            color: _statics(fontGreyerColor);
+                                            span {
+                                                margin-right: 0.425rem;
+                                            }
+                                        }
+                                        &.food-prom-text {
+                                            line-height: 0.625rem;
+                                            padding-left: 0.25rem;
+                                            padding-top: 0.125rem;
+                                            span {
+                                                font-size: 0.5rem;
+                                                border: 1px solid _statics(activeBorderColor);
+                                                border-radius: 0.3rem;
+                                                padding: 0.125rem;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .order-section {
+                                &>.col-3 {
+                                    padding: 0 0 1.5rem;
+                                    p {
+                                        color: _statics(cardFontColor);
+                                        font-size: 0.875rem;
+                                        span {
+                                            color: _statics(fontDarkColor);
+                                        }
+                                    }
+                                }
+                                &>.col-9 {
+                                    color: _statics(cardFontColor);
+                                    padding: 0 0 1.5rem;
+                                    font-size: 1.25rem;
+                                    &>div {
+                                        line-height: 1.25rem;
+                                    }
+                                    .food-count-num {
+                                        font-size: 0.875rem;
+                                        padding: 0 0.5rem;
+                                    }
+                                    .btn-choose {
+                                        font-size: 0.725rem;
+                                        padding: 0.0625rem 0.25rem;
+                                    }
+                                    .showReduce-enter-active,
+                                    .showReduce-leave-active {
+                                        transition: all 0.3s ease-out;
+                                    }
+                                    .showReduce-enter,
+                                    .showReduce-leave-active {
+                                        opacity: 0;
+                                        transform: translateX(1rem);
+                                    }
+                                    .fade-enter-active,
+                                    .fade-leave-active {
+                                        transition: all 0.3s;
+                                    }
+                                    .fade-enter,
+                                    .fade-leave-active {
+                                        opacity: 0;
+                                    }
+                                    .fadeBounce-enter-active,
+                                    .fadeBounce-leave-active {
+                                        transition: all 0.3s;
+                                    }
+                                    .fadeBounce-enter,
+                                    .fadeBounce-leave-active {
+                                        opacity: 0;
+                                        transform: scale(0.7);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .shopping-cart-footer {
+                        color: _statics(fontDarkColor);
+                        border: none;
+                        border-top: 1px solid _statics(cardBorderColor);
+                        background-color: _statics(footerBgColor);
+                        height: 4.185rem;
+                        z-index: 1100;
+                        position: relative;
+                        .col-5,
+                        .col-7 {
+                            padding: 0.425rem 1rem;
+                        }
+                        .col-7 {
+                            position: relative;
+                            .cart-icon-container {
+                                position: absolute;
+                                top: -1.75rem;
+                                &.move-into-cart {
+                                    @include animation('dotMove 0.5s ease-in-out');
+                                }
+                                i {
+                                    font-size: 2.25rem;
+                                    text-align: center;
+                                    vertical-align: middle;
+                                    background-color: _statics(footerBgColor);
+                                    border-radius: 50%;
+                                    border: 2px solid transparentize(_statics(cardBorderColor), 0.5);
+                                    position: relative;
+                                    color: _statics(cardFontColor);
+                                    width: 3.789rem;
+                                    height: 3.789rem;
+                                    line-height: 3.6rem;
+                                    .badge {
+                                        font-size: 0.675rem;
+                                        line-height: 1.25;
+                                        font-weight: lighter;
+                                        top: -0.0625rem;
+                                        right: -0.125rem;
+                                        position: absolute;
+                                        border-radius: 50%;
+                                        color: _statics(fontBrightColor);
+                                        background-color: _statics(activeBorderColor);
+                                    }
+                                }
+                            }
+                            .all-shopping-price {
+                                padding-left: 4.25rem;
+                                font-stretch: semi-condensed;
+                                p {
+                                    &:nth-child(1) {
+                                        font-size: 1.25rem;
+                                        padding: 0;
+                                        color: _statics(cardFontColor);
+                                    }
+                                    &:nth-child(2) {
+                                        font-size: 0.625rem;
+                                        padding: 0.125rem 0;
+                                        color: _statics(fontDarklessColor);
+                                    }
+                                }
+                            }
+                        }
+                        .col-5 {
+                            font-size: 0.9375rem;
+                            font-weight: bold;
+                            font-stretch: semi-condensed;
+                            text-align: center;
+                            padding-left: 0.625rem;
+                            border-left: 1px solid _statics(cardBorderColor);
+                            span {
+                                color: _statics(cardFontColor);
+                            }
+                            .checkout-btn {
+                                color: _statics(fontBrightColor);
+                            }
+                            &.pay-active {
+                                background-color: _statics(activeBorderColor);
+                            }
+                        }
+                    }
+                }
+                .comments-container {
+                    .shop-comments-card {
+                        border: none;
+                        &>.card-header {
+                            background-color: _statics(cardBgColor);
+                            border-bottom: 1px solid transparentize(_statics(fontGreyColor), 0.6);
+                            padding: 0.75rem 1rem;
+                            .col-5 p {
+                                &:nth-child(1) {
+                                    color: _statics(ratingColor);
+                                    font-size: 2.5rem;
+                                    font-weight: bold;
+                                }
+                                &:nth-child(2) {
+                                    color: _statics(fontDarkColor);
+                                    font-stretch: semi-condensed;
+                                    font-size: 0.9375rem;
+                                    font-weight: bold;
+                                    padding-bottom: 0.125rem
+                                }
+                                &:nth-child(3) {
+                                    color: _statics(fontDarklessColor);
+                                    font-stretch: semi-condensed;
+                                    font-size: 0.625rem;
+                                }
+                            }
+                            .col-7 {
+                                padding: 0 0 0 1.425rem;
+                                p {
+                                    color: _statics(fontDarklessColor);
+                                    font-size: 0.9375rem;
+                                    font-stretch: semi-condensed;
+                                    margin-bottom: 0.25rem;
+                                    &>span:first-child {
+                                        width: 6.9375rem;
+                                    }
+                                    .rating-container {
+                                        margin: 0 0.425rem 0.25rem;
+                                    }
+                                    .rating-text {
+                                        color: _statics(ratingColor);
+                                    }
+                                    .order-time-text {
+                                        color: _statics(fontGreyColor);
+                                        font-size: 0.75rem;
+                                        margin: 0 0.425rem;
+                                    }
+                                }
+                            }
+                        }
+                        &>.card-body {
+                            &>.row {
+                                padding: 0.75rem 1rem;
+                                span {
+                                    color: _statics(fontDarklessColor);
+                                    padding: 0.125rem 0.375rem;
+                                    margin-right: 1.25rem;
+                                    margin-bottom: 0.45rem;
+                                    font-size: 0.875rem;
+                                    border-radius: 0.375rem;
+                                    border: 1px solid transparentize(_statics(premiumBgColor), 0.45);
+                                    background-color: _statics(labelBgColor);
+                                    &.active {
+                                        color: _statics(fontBrightColor);
+                                        background-color: _statics(premiumBgColor);
+                                    }
+                                    &.unsatisfied {
+                                        color: _statics(fontGreyColor);
+                                        background-color: _statics(unsatisfiedColor);
+                                    }
+                                }
+                            }
+                            &>.comments-list {
+                                &>.list-group-item {
+                                    border: none;
+                                    border-top: 1px solid _statics(cityBorderColor);
+                                    padding: 0.75rem 1rem;
+                                    .col-3 img {
+                                        width: 3.375rem;
+                                        height: 3.375rem;
+                                        border-radius: 50%;
+                                    }
+                                    .col-9 {
+                                        &>p {
+                                            color: _statics(fontGreyerColor);
+                                            font-size: 0.875rem;
+                                            margin-bottom: 0.375rem;
+                                            .timestamp-text {
+                                                font-size: 0.625rem;
+                                            }
+                                            .rating-container {
+                                                margin: 0 0.425rem 0.25rem 0;
+                                            }
+                                        }
+                                        &>.comment-images {
+                                            margin-bottom: 0.375rem;
+                                            img {
+                                                width: 4.75rem;
+                                                height: 4.75rem;
+                                                margin-right: 0.625rem;
+                                            }
+                                        }
+                                        &>.comment-labels span {
+                                            color: _statics(fontGreyestColor);
+                                            padding: 0.125rem 0.375rem;
+                                            margin-right: 1.25rem;
+                                            font-size: 0.725rem;
+                                            border-radius: 0.375rem;
+                                            border: 1px solid transparentize(_statics(fontGreyestColor), 0.45);
+                                            background-color: transparent;
+                                            text-overflow: ellipsis;
+                                            overflow: hidden;
+                                            white-space: nowrap;
+                                            width: 3.5rem;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .shop-promotion-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: _statics(modalBgColor);
+            z-index: 3008;
+            padding: 1.25rem;
+            color: _statics(fontWarmColor);
+            &>h2 {
+                font-size: 2.125rem;
+                padding: 1.25rem 0 0;
+                font-weight: bold;
+            }
+            &>.rating-container {
+                margin: 0.425rem 0;
+                transform: scale(1.6);
+            }
+            .header-text {
+                padding: 0.125rem 0.425rem;
+                border: 1px solid transparentize(_statics(fontWarmColor), 0.75);
+                font-size: 0.875rem;
+                border-radius: 0.475rem;
+                display: inline-block;
+                margin: 0.9375rem 0 0.375rem;
+            }
+            &>.promotion-detail-container .list-group-item,
+            &>.shop-notice-container p.promotion-text {
+                background-color: transparent;
+                color: _statics(fontWarmColor);
+                font-size: 0.75rem;
+                padding: 0.375rem 1.25rem;
+                border: none;
+                span.promotion-icon {
+                    padding: 0.125rem 0.175rem;
+                    margin-right: 0.475rem;
+                    border-radius: 0.125rem;
+                }
+            }
+            &>.close-btn {
+                @include vendor('flex',
+                '1');
+                &>i {
+                    padding: 0.625rem 0.765rem;
+                    border-radius: 50%;
+                    font-size: 1.25rem;
+                    color: transparentize(_statics(fontWarmColor), 0.05);
+                    border: 1px solid transparentize(_statics(fontWarmColor), 0.75);
+                }
+            }
+        }
+    }
+    .multichoices-container {
+        color: _statics(fontDarkColor);
+        .modal-header {
+            &>h4.modal-title {
+                margin-left: auto;
+                margin-right: auto;
+                font-weight: bold;
+            }
+            &>.close {
+                margin-left: 0 !important;
+            }
+        }
+        .modal-body {
+            h5 {
+                color: _statics(fontDarklessColor);
+                padding: 0.625rem 0;
+            }
+            .list-group-item {
+                padding-top: 0.375rem;
+                padding-bottom: 0.375rem;
+                border-radius: 0.25rem;
+                font-size: 0.9375rem;
+                &.spec-active {
+                    border-color: _statics(activeBorderColor);
+                }
+            }
+        }
+        .modal-footer {
+            background-color: _statics(footerBgColor);
+            border: none;
+            p {
+                color: _statics(cardFontColor);
+                font-size: 1.25rem;
+                font-weight: bold;
+                span {
+                    font-size: 0.9375rem;
+                    font-weight: normal;
+                    padding-right: 0.125rem;
+                }
+            }
+            .add-btn {
+                font-size: 0.875rem;
+            }
+        }
+    }
+    #shop-detail-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 2008;
+        background-color: _statics(subCardBgColor);
+        &>.main-container {
+            background-color: _statics(subCardBgColor);
+        }
+        .fade-enter-active,
+        .fade-leave-active {
+            transition: opacity 0.5s;
+        }
+        .fade-enter,
+        .fade-leave-active {
+            opacity: 0;
+        }
+        .card {
+            margin-bottom: 1rem;
+            border: none;
+            border-bottom: 1px solid _statics(cardBorderColor);
+            .card-body {
+                padding-top: 0.625rem;
+                padding-bottom: 0.625rem;
+                h4 {
+                    font-size: 1.075rem;
+                    font-weight: bold;
+                    color: _statics(fontDarkColor);
+                    padding: 0 1.25rem 0.625rem;
+                    border-bottom: 1px solid _statics(cityBorderColor);
+                    font-stretch: semi-condensed;
+                }
+            }
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+        .promotion-info-card {
+            .card-body {
+                .activity-list .list-group-item {
+                    border: none;
+                    color: _statics(fontGreyerColor);
+                    font-size: 0.825rem;
+                    padding: 0.5rem 1.25rem;
+                    &>span:first-child {
+                        color: _statics(fontBrightColor);
+                        padding: 0.0625rem 0.125rem;
+                        border-radius: 0.25rem;
+                        margin-right: 0.375rem;
+                    }
+                    &:first-child {
+                        padding-top: 0.625rem;
+                    }
+                    &:last-child {
+                        padding-bottom: 0.625rem;
+                    }
+                }
+            }
+        }
+        .safety-info-card {
+            .card-body {
+                &>a h4 {
+                    &>span:nth-child(2),
+                    i.fa {
+                        color: _statics(fontGreyColor);
+                        font-weight: normal;
+                    }
+                }
+                &>div {
+                    padding: 0.625rem 1.25rem;
+                    i.fa {
+                        font-size: 3.25rem;
+                    }
+                    &>.date-info p {
+                        color: _statics(fontGreyerColor);
+                        font-size: 0.825rem;
+                        margin-left: 1.25rem;
+                        padding-top: 0.25rem;
+                    }
+                }
+            }
+        }
+        .shop-info-card {
+            .card-body {
+                .shop-info-list .list-group-item {
+                    border: none;
+                    color: _statics(fontGreyerColor);
+                    font-size: 0.9375rem;
+                    padding: 0.5rem 1.25rem;
+                    &:first-child {
+                        padding-top: 0.625rem;
+                    }
+                    &:last-child {
+                        padding-bottom: 0.625rem;
+                    }
+                }
+            }
+        }
+        #safety-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 2010;
+            background-color: _statics(subCardBgColor);
+            &>.main-container {
+                background-color: _statics(subCardBgColor);
+                &>.license-img-card .license-img-container img {
+                    width: 9.75rem;
+                }
+            }
+            .list-group-item {
+                border: none;
+                font-size: 0.85rem;
+                color: _statics(fontGreyerColor);
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                &>.prop-name {
+                    color: _statics(fontDarkColor);
+                    font-size: 0.9375rem;
+                    margin-right: 0.25rem;
+                }
+            }
+        }
+    }
+    #food-detail-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1042;
+        background-color: _statics(subCardBgColor);
+        .food-icon {
+            padding-top: 0.625rem;
+            padding-bottom: 0.625rem;
+            &>img {
+                height: 17.25rem;
+            }
+        }
+        .food-name-text {
+            font-size: 1.425rem;
+            font-weight: bold;
+            color: _statics(fontDarkColor);
+        }
+        .description-text {
+            font-size: 0.875rem;
+            padding-top: 0.425rem;
+            padding-bottom: 0.425rem;
+            color: _statics(fontGreyerColor);
+        }
+        .review-container {
+            font-size: 0.925rem;
+            padding-top: 0.425rem;
+            padding-bottom: 0.175rem;
+            &>span {
+                &:first-child {
+                    color: _statics(fontDarkColor);
+                    margin-right: 0.75rem;
+                    font-weight: bold;
+                }
+                &:last-child {
+                    color: _statics(ratingColor);
+                    font-size: 0.875rem;
+                    font-weight: bold;
+                    margin-left: 0.75rem;
+                }
+            }
+            &>.rating-container {
+                transform: scale(1.2);
+                margin-bottom: 0.125rem;
+            }
+        }
+        .sale-record-container {
+            font-size: 0.925rem;
+            padding-bottom: 0.175rem;
+            &>span {
+                &:first-child {
+                    color: _statics(fontDarkColor);
+                    margin-right: 0.9375rem;
+                }
+                &:last-child {
+                    color: _statics(cardFontColor);
+                    &>span:first-child {
+                        font-weight: bold;
+                        margin-right: 0.175rem;
+                    }
+                    &>.small-text {
+                        font-size: 0.625rem;
+                        margin-right: 0.225rem;
+                    }
+                }
+            }
+        }
+        .food-satisfication {
+            font-size: 0.925rem;
+            color: _statics(fontDarkColor);
+            padding-bottom: 0.175rem;
+            &>span:first-child {
+                margin-right: 0.9375rem;
+            }
+        }
+    }
+    .move-dot {
+        position: fixed;
+        bottom: 3rem;
+        left: 1.875rem;
+        color: _statics(cardFontColor);
+        font-size: 1.25rem;
+    }
+    .alert {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        width: 80%;
+        z-index: 3000;
+        transform: translateY(-50%);
+        background-color: _statics(alertBgColor);
+        font-size: 0.875rem;
+        color: _statics(fontBrightColor);
+        margin: 0 auto;
+    }
+}
+
+.profile-container {
+    background-color: _statics(subCardBgColor) !important;
+    .router-slid-enter-active,
+    .router-slid-leave-active {
+        transition: all 0.4s;
+    }
+    .router-slid-enter,
+    .router-slid-leave-active {
+        transform: translate3d(2rem, 0, 0);
+        opacity: 0;
+    }
+    .profile-title-card {
+        border: none;
+        border-bottom: 1px solid _statics(cardBorderColor);
+        &>.card-body>a {
+            padding: 1.25rem 1rem;
+        }
+        .profileImg {
+            width: 3.475rem;
+            height: 3.475rem;
+            line-height: 3.475rem;
+            border-radius: 50%;
+            font-size: 3.475rem;
+            color: _statics(fontDarkColor);
+        }
+        .profile-info {
+            @include vendor ('flex',
+            '1');
+            color: _statics(fontDarkColor);
+            padding-left: 0.875rem;
+            text-transform: uppercase;
+            &>.username-text {
+                font-size: 1.125rem;
+                font-weight: bold;
+                &:hover,
+                &:focus {
+                    text-decoration: none;
+                }
+            }
+            &>p:last-child {
+                color: _statics(fontGreyerColor);
+                font-size: 0.775rem;
+                font-stretch: semi-condensed;
+                &:hover,
+                &:focus {
+                    text-decoration: none;
+                }
+                .fa {
+                    color: _statics(fontDarkColor);
+                    margin-right: 0.475rem;
+                    font-size: 1.25rem;
+                }
+            }
+        }
+        .right-arrow {
+            color: _statics(fontDarklessColor);
+        }
+    }
+    .profile-content-card {
+        border: none;
+        background-color: _statics(subCardBgColor);
+        .card-header {
+            border-bottom: 1px solid _statics(cardBorderColor);
+            background-color: _statics(cardBgColor);
+            &>.profile-feature {
+                @include vendor ('flex',
+                '1');
+                color: _statics(fontDarklessColor);
+                text-transform: uppercase;
+                border-right: 1px solid _statics(cityBorderColor);
+                padding-top: 0.625rem;
+                padding-bottom: 0.625rem;
+                &.blance {
+                    color: _statics(fontRedColor);
+                }
+                &.promotions {
+                    color: _statics(fontPromColor);
+                }
+                &.rewards {
+                    color: _statics(fontRedColor);
+                    border-right: none;
+                }
+                &>p:first-child {
+                    font-size: 1.225rem;
+                    font-weight: bold;
+                    padding-bottom: 0.225rem;
+                    &>span {
+                        font-size: 0.775rem;
+                        font-weight: normal;
+                        font-stretch: semi-condensed;
+                        color: _statics(fontGreyerColor);
+                    }
+                }
+                &>span:last-child {
+                    font-size: 0.775rem;
+                    color: _statics(fontGreyerColor);
+                }
+            }
+        }
+        .card-body {
+            &>.list-group .list-group-item {
+                border: none;
+                border-bottom: 1px solid _statics(cityBorderColor);
+                margin: 0;
+                padding: 0.725rem 1rem;
+                background-color: _statics(cardBgColor);
+                &>a {
+                    color: _statics(fontDarkColor);
+                    &>p {
+                        font-size: 0.875rem;
+                        span {
+                            font-stretch: semi-condensed;
+                            padding-left: 0.625rem;
+                        }
+                        i.order-icon,
+                        i.help-icon,
+                        i.download-icon {
+                            color: _statics(fontRedColor);
+                        }
+                        i.bag-icon {
+                            color: _statics(fontPromColor);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #pro-info-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 2008;
+        background-color: _statics(subCardBgColor);
+        &>.main-container {
+            background-color: _statics(subCardBgColor);
+        }
+        .router-slid-enter-active,
+        .router-slid-leave-active {
+            transition: all 0.4s;
+        }
+        .router-slid-enter,
+        .router-slid-leave-active {
+            transform: translate3d(2rem, 0, 0);
+            opacity: 0;
+        }
+        .fade-enter-active,
+        .fade-leave-active {
+            transition: opacity 0.3s;
+        }
+        .fade-enter,
+        .fade-leave-active {
+            opacity: 0;
+        }
+        .logout-modal-container {
+            color: _statics(fontDarkColor);
+            .modal-body {
+                i.fa-exclamation-circle {
+                    color: _statics(fontRedColor);
+                    font-size: 4.75rem;
+                    padding: 0.675rem 0;
+                }
+                &>p {
+                    font-size: 0.9375rem;
+                    color: _statics(fontDarkColor);
+                    font-stretch: semi-condensed;
+                    font-weight: bold;
+                }
+            }
+            .modal-footer .info-btn {
+                margin: 0 0.475rem;
+            }
+        }
+        .pro-info-card {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            border: none;
+            background-color: _statics(subCardBgColor);
+            .card-header {
+                background-color: transparent;
+                border: none;
+                &>.list-group .list-group-item {
+                    border: none;
+                    border-bottom: 1px solid _statics(cityBorderColor);
+                    margin: 0;
+                    padding: 0.725rem 1rem;
+                    background-color: _statics(cardBgColor);
+                    &>div.pro-img-section {
+                        padding: 0.375rem 0;
+                        .profileImg {
+                            width: 3.475rem;
+                            height: 3.475rem;
+                            line-height: 3.475rem;
+                            border-radius: 50%;
+                            font-size: 3.475rem;
+                            color: _statics(fontDarkColor);
+                        }
+                        &>span {
+                            color: _statics(fontDarkColor);
+                            font-size: 0.875rem;
+                            font-stretch: semi-condensed;
+                        }
+                        .right-arrow {
+                            color: _statics(fontDarkColor);
+                        }
+                    }
+                    &>a {
+                        color: _statics(fontDarkColor);
+                        span,
+                        &>p {
+                            color: _statics(fontDarkColor);
+                            font-size: 0.875rem;
+                            font-stretch: semi-condensed;
+                        }
+                        &:focus,
+                        &:active,
+                        &:hover {
+                            text-decoration: none;
+                        }
+                    }
+                    &.avatar-section {
+                        position: relative;
+                        input[type=file] {
+                            position: absolute;
+                            width: 100%;
+                            opacity: 0;
+                            top: 0;
+                            left: 0;
+                            right: 0;
+                            bottom: 0;
+                        }
+                    }
+                }
+            }
+            .card-body {
+                padding-bottom: 0.625rem;
+                &>.list-group .list-group-item {
+                    border: none;
+                    border-bottom: 1px solid _statics(cityBorderColor);
+                    margin: 0;
+                    padding: 0.725rem 1rem;
+                    background-color: _statics(cardBgColor);
+                    &>a,
+                    &>div {
+                        color: _statics(fontDarkColor);
+                        &>p {
+                            font-size: 0.875rem;
+                            span {
+                                font-stretch: semi-condensed;
+                                padding-left: 0.625rem;
+                            }
+                            i.mobile-icon {
+                                color: _statics(fontRedColor);
+                            }
+                        }
+                    }
+                    &.pro-setting-title-text {
+                        font-size: 0.875rem;
+                        font-weight: bold;
+                        font-stretch: semi-condensed;
+                        background-color: transparent;
+                        color: _statics(fontDarkColor);
+                    }
+                }
+            }
+            .card-footer {
+                border: none;
+                padding: 0.725rem 1rem;
+                background-color: transparent;
+            }
+        }
+        #set-username-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 2010;
+            background-color: _statics(subCardBgColor);
+            &>.main-container {
+                background-color: _statics(subCardBgColor);
+            }
+            .set-username-card {
+                margin-top: 1rem;
+                border: none;
+                background-color: _statics(subCardBgColor);
+                .card-body {
+                    padding: 0 1rem 0.725rem;
+                    .username-tip {
+                        color: _statics(fontRedColor);
+                        font-stretch: semi-condensed;
+                        font-size: 0.725rem;
+                        font-weight: bold;
+                        padding-left: 0.45rem;
+                        margin-top: 0.375rem;
+                        margin-bottom: 1.125rem;
+                    }
+                }
+            }
+        }
+        #user-address-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 2010;
+            background-color: _statics(subCardBgColor);
+            .router-slid-enter-active,
+            .router-slid-leave-active {
+                transition: all 0.4s;
+            }
+            .router-slid-enter,
+            .router-slid-leave-active {
+                transform: translate3d(2rem, 0, 0);
+                opacity: 0;
+            }
+            &>.main-container {
+                background-color: _statics(subCardBgColor);
+            }
+            .user-address-card {
+                margin-top: 1rem;
+                border: none;
+                background-color: _statics(subCardBgColor);
+                .card-body {
+                    padding-bottom: 0.725rem;
+                    .list-group .list-group-item {
+                        border: none;
+                        border-bottom: 1px solid _statics(cityBorderColor);
+                        color: _statics(fontDarkColor);
+                        padding: 0.725rem 1rem 0.475rem;
+                        margin: 0;
+                        background-color: _statics(cardBgColor);
+                        p {
+                            color: _statics(fontGreyerColor);
+                            font-size: 0.75rem;
+                            margin-left: 0.225rem;
+                            &:first-child {
+                                font-size: 0.775rem;
+                                font-weight: bold;
+                                color: _statics(fontDarkColor);
+                                margin-bottom: 0.125rem;
+                                margin-left: 0;
+                            }
+                        }
+                    }
+                }
+                .card-footer {
+                    border: none;
+                    background-color: transparent;
+                    &>a {
+                        border: none;
+                        margin: 0;
+                        padding: 0.725rem 1rem;
+                        background-color: _statics(cardBgColor);
+                        font-size: 0.875rem;
+                        color: _statics(fontDarkColor);
+                        font-stretch: semi-condensed;
+                    }
+                }
+            }
+            #add-address-container {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 2020;
+                background-color: _statics(subCardBgColor);
+                .router-slid-enter-active,
+                .router-slid-leave-active {
+                    transition: all 0.4s;
+                }
+                .router-slid-enter,
+                .router-slid-leave-active {
+                    transform: translate3d(2rem, 0, 0);
+                    opacity: 0;
+                }
+                &>.main-container {
+                    background-color: _statics(subCardBgColor);
+                }
+                .add-address-card {
+                    margin-top: 1rem;
+                    border: none;
+                    background-color: _statics(subCardBgColor);
+                    .card-body {
+                        padding: 0 1rem 0.725rem;
+                        .verify-text {
+                            color: _statics(fontRedColor);
+                            font-stretch: semi-condensed;
+                            font-size: 0.725rem;
+                            font-weight: bold;
+                            padding-left: 0.45rem;
+                            margin-bottom: 0.375rem;
+                        }
+                    }
+                    .card-footer {
+                        border: none;
+                        background-color: transparent;
+                        padding: 0 1rem 0.725rem;
+                    }
+                }
+                #search-address-container {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    z-index: 2030;
+                    background-color: _statics(subCardBgColor);
+                    &>.main-container {
+                        background-color: _statics(subCardBgColor);
+                    }
+                    .search-address-card {
+                        margin-top: 1rem;
+                        border: none;
+                        background-color: _statics(subCardBgColor);
+                        .card-body {
+                            padding: 0 1rem 0.725rem;
+                            .input-group {
+                                margin-bottom: 1rem;
+                            }
+                            .search-result {
+                                margin: 0 -1rem;
+                                @include vendor ('flex',
+                                '1');
+                                .warning-text-title {
+                                    border-top: 1px solid _statics(cardBorderColor);
+                                    border-bottom: 1px solid _statics(cityBorderColor);
+                                    color: _statics(fontRedColor);
+                                    background-color: _statics(cardHeaderColor);
+                                    padding: 0.375rem 1rem;
+                                    font-size: 0.625rem;
+                                }
+                                .warning-text {
+                                    margin-top: 6.25rem;
+                                    P {
+                                        color: _statics(fontGreyerColor);
+                                        font-stretch: semi-condensed;
+                                        padding-bottom: 0.225rem;
+                                        font-size: 0.825rem;
+                                        text-transform: uppercase;
+                                    }
+                                }
+                                .list-group {
+                                    overflow-y: scroll;
+                                    overflow-x: hidden;
+                                    @include vendor ('flex',
+                                    '1');
+                                    .list-group-item {
+                                        border: none;
+                                        color: _statics(fontDarkColor);
+                                        padding-top: 1rem;
+                                        padding-bottom: 0.475rem;
+                                        border-bottom: 1px solid _statics(cityBorderColor);
+                                        margin: 0;
+                                        background-color: _statics(cardBgColor);
+                                        h4 {
+                                            font-weight: bold;
+                                        }
+                                        p {
+                                            color: _statics(fontGreyerColor);
+                                            font-size: 0.75rem;
+                                            margin-top: 0.425rem;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.service-container {
+    .router-slid-enter-active,
+    .router-slid-leave-active {
+        transition: all 0.4s;
+    }
+    .router-slid-enter,
+    .router-slid-leave-active {
+        transform: translate3d(2rem, 0, 0);
+        opacity: 0;
+    }
+    &>.main-container {
+        height: 100vh;
+    }
+    .service-info-card {
+        border: none;
+        background-color: _statics(subCardBgColor);
+        .card-header {
+            border-bottom: 1px solid _statics(cardBorderColor);
+            background-color: _statics(cardBgColor);
+            &>a {
+                @include vendor ('flex',
+                '1');
+                color: _statics(fontDarklessColor);
+                text-transform: uppercase;
+                border-right: 1px solid _statics(cityBorderColor);
+                padding-top: 0.625rem;
+                padding-bottom: 0.625rem;
+                &.phone {
+                    border-right: none;
+                }
+                &>i {
+                    font-size: 2.125rem;
+                    padding-bottom: 0.375rem;
+                }
+                &>span {
+                    font-size: 0.775rem;
+                    color: _statics(fontGreyerColor);
+                }
+            }
+        }
+        .card-body {
+            &>p {
+                color: _statics(cardFontColor);
+                font-size: 0.675rem;
+                background-color: _statics(cardHeaderColor);
+                padding: 0.375rem 1rem;
+                border-bottom: 1px solid _statics(cityBorderColor);
+            }
+            &>.list-group .list-group-item {
+                border: none;
+                border-bottom: 1px solid _statics(cityBorderColor);
+                margin: 0;
+                padding: 0.725rem 1rem;
+                background-color: _statics(cardBgColor);
+                &>span {
+                    font-size: 0.875rem;
+                    color: _statics(fontDarkColor);
+                    font-stretch: semi-condensed;
+                }
+            }
+        }
+    }
+    #answer-detail-container {
+        position: absolute;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1090;
+        overflow-y: scroll;
+        background-color: _statics(subCardBgColor);
+        .answer-detail-card {
+            border: none;
+            background-color: _statics(subCardBgColor);
+            .card-body {
+                padding: 0.625rem 1rem;
+                font-size: 0.9375rem;
+                color: _statics(fontDarklessColor);
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+.download-container {
+    .download-info-card {
+        border: none;
+        &>.card-body {
+            padding: 1rem;
+            img {
+                border-radius: 1.25rem;
+            }
+            p {
+                font-size: 0.9375rem;
+                color: _statics(fontDarkColor);
+                text-transform: uppercase;
+                font-stretch: semi-condensed;
+                font-weight: bold;
+                padding-top: 0.9375rem;
+                padding-bottom: 0.9375rem;
+            }
+        }
+    }
+}
+
+.alert-tip-container {
+    .modal-body {
+        i.fa-exclamation-circle {
+            font-size: 4.25rem;
+            color: _statics(fontRedColor);
+        }
+        p {
+            font-size: 0.875rem;
+            color: _statics(fontDarkColor);
+            text-transform: uppercase;
+            font-stretch: semi-condensed;
+            padding-top: 0.675rem;
+            padding-bottom: 0.675rem;
+        }
+    }
+}
+
+.login-container {
+    background-color: _statics(subCardBgColor) !important;
+    .login-form-card {
+        border: none;
+        background-color: _statics(subCardBgColor);
+        &>.card-body {
+            padding: 0.725rem 1rem;
+            .onoffswitch {
+                width: 3rem;
+                position: relative;
+                font-stretch: condensed;
+                @include vendor ('user-select',
+                'none');
+                &>input[type=checkbox] {
+                    display: inline-block;
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 10;
+                    opacity: 0;
+                    &:checked+.onoffswitch-label .onoffswitch-inner {
+                        margin-left: 0;
+                    }
+                    &:checked+.onoffswitch-label .onoffswitch-switch {
+                        right: 0px;
+                    }
+                }
+                &>label {
+                    display: block;
+                    overflow: hidden;
+                    cursor: pointer;
+                    border: none;
+                    border-radius: 2rem;
+                    &>.onoffswitch-inner {
+                        display: block;
+                        width: 200%;
+                        margin-left: -100%;
+                        transition: margin 0.3s ease-in 0s;
+                        @include vendor ('transition',
+                        ( 'margin 0.3s ease-in 0s'));
+                        &:before,
+                        &:after {
+                            display: block;
+                            float: left;
+                            width: 50%;
+                            height: 1.25rem;
+                            padding: 0;
+                            line-height: 1.25rem;
+                            font-size: 0.675rem;
+                            font-weight: bold;
+                        }
+                        &:before {
+                            content: "ON";
+                            padding-left: 0.35rem;
+                            background-color: _statics(subBtnBgColor);
+                            color: _statics(fontWarmColor);
+                        }
+                        &:after {
+                            content: "OFF";
+                            padding-right: 0.35rem;
+                            background-color: _statics(fontGreyColor);
+                            color: _statics(fontRedColor);
+                            text-align: right;
+                        }
+                    }
+                    &>.onoffswitch-switch {
+                        display: block;
+                        width: 1.125rem;
+                        margin: 0.0625rem;
+                        background: _statics(fontWarmColor);
+                        position: absolute;
+                        top: 0;
+                        bottom: 0;
+                        right: 1.75rem;
+                        border: none;
+                        border-radius: 1.25rem;
+                        @include vendor('transition',
+                        ('all 0.3s ease-in 0s'));
+                    }
+                }
+            }
+            .captcha-img {
+                background: transparentize( _statics(subBtnBgColor), 0.75);
+                padding: 0.0625rem;
+            }
+            .refresh-text {
+                color: _statics(fontGreyerColor);
+                font-size: 0.875rem;
+                font-stretch: semi-condensed;
+                text-transform: uppercase;
+            }
+            .frame-btn {
+                font-size: 0.875rem;
+                border-radius: 0.525rem !important;
+            }
+            .login-tips {
+                color: _statics(fontRedColor);
+                font-stretch: semi-condensed;
+                font-size: 0.725rem;
+                font-weight: bold;
+                margin-top: 0.375rem;
+                padding-left: 0.45rem;
+            }
+            .login-btn {
+                margin-top: 0.875rem;
+            }
+            .forget-btn {
+                width: 100%;
+                display: inline-block;
+                font-size: 0.75rem;
+                font-stretch: semi-condensed;
+                color: _statics(fontRedColor);
+                text-decoration: underline;
+                text-align: right;
+                margin-top: 1.125rem;
+                text-transform: uppercase;
+                &:active,
+                &:hover,
+                &:focus {
+                    text-decoration: underline;
+                    color: _statics(highlightColor);
+                }
+            }
+        }
+    }
+}
+
+.points-container,
+.balance-container {
+    .router-slid-enter-active,
+    .router-slid-leave-active {
+        transition: all 0.4s;
+    }
+    .router-slid-enter,
+    .router-slid-leave-active {
+        transform: translate3d(2rem, 0, 0);
+        opacity: 0;
+    }
+    &>.main-container {
+        height: 100vh;
+    }
+    .points-info-card,
+    .balance-info-card {
+        border: none;
+        background-color: _statics(subCardBgColor);
+        &>.card-body {
+            padding: 0.725rem 1rem;
+            &>.title-text {
+                font-size: 0.825rem;
+                font-stretch: semi-condensed;
+                padding-bottom: 0.375rem;
+                border-bottom: 1px solid _statics(cardBorderColor);
+                &>span {
+                    color: _statics(fontDarklessColor);
+                    @include vendor ('flex',
+                    '1');
+                }
+                &>p {
+                    color: _statics(fontRedColor);
+                    i.fa {
+                        font-size: 0.9735rem;
+                        padding-right: 0.375rem;
+                    }
+                }
+            }
+            &>p {
+                font-size: 0.875rem;
+                color: _statics(fontGreyerColor);
+                font-stretch: semi-condensed;
+                padding-top: 1.25rem;
+                padding-bottom: 1.25rem;
+                span {
+                    font-size: 2.5rem;
+                    font-weight: bold;
+                    font-stretch: normal;
+                    margin-right: 0.375rem;
+                    color: _statics(fontDarkColor);
+                }
+            }
+            &>.reward-btn,
+            &>.withdraw-btn {
+                margin-bottom: 0.625rem;
+            }
+        }
+    }
+    .points-record-card,
+    .balance-record-card {
+        border: none;
+        border-top: 1px solid _statics(cardBorderColor);
+        &>.card-header {
+            padding: 0.375rem 1rem;
+            color: _statics(cardFontColor);
+            font-size: 0.675rem;
+            background-color: _statics(cardHeaderColor);
+            border-bottom: 1px solid _statics(cityBorderColor);
+            &:first-child {
+                border-radius: 0;
+            }
+        }
+        &>.card-body {
+            padding: 0.725rem 1rem;
+            &>img {
+                margin-top: 2.5rem;
+                width: 11.5rem;
+            }
+            &>P {
+                color: _statics(fontGreyerColor);
+                font-stretch: semi-condensed;
+                &:nth-child(2) {
+                    padding-top: 1.25rem;
+                    padding-bottom: 0.225rem;
+                    font-size: 1.075rem;
+                }
+                &:last-child {
+                    font-size: 0.75rem;
+                }
+            }
+        }
+    }
+    #answer-detail-container {
+        position: absolute;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1090;
+        overflow-y: scroll;
+        background-color: _statics(subCardBgColor);
+        .answer-detail-card {
+            border: none;
+            background-color: _statics(subCardBgColor);
+            .card-body {
+                padding: 0.625rem 1rem;
+                font-size: 0.925rem;
+                color: _statics(fontDarklessColor);
+                h4 {
+                    font-size: 1.125rem;
+                    font-weight: bold;
+                    padding-bottom: 0.125rem;
+                    color: _statics(fontDarkColor);
+                }
+                h6 {
+                    padding-bottom: 1.125rem;
+                    &.small-gap {
+                        padding-bottom: 0.125rem;
+                    }
+                }
+                ul {
+                    padding-bottom: 1.125rem;
+                    color: _statics(fontGreyerColor);
+                    li {
+                        font-size: 0.875rem;
+                        padding: 0.0625rem 0 0.0625rem 0.75rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.vip-container {
+    background-color: _statics(subCardBgColor) !important;
+    .router-slid-enter-active,
+    .router-slid-leave-active {
+        transition: all 0.4s;
+    }
+    .router-slid-enter,
+    .router-slid-leave-active {
+        transform: translate3d(2rem, 0, 0);
+        opacity: 0;
+    }
+    &>.main-container {
+        height: 100vh;
+    }
+    .vip-center-card {
+        border: none;
+        background-color: _statics(subCardBgColor);
+        .card-header {
+            border-bottom: 1px solid _statics(cardBorderColor);
+            background-color: _statics(cardHeaderColor);
+            padding: 0.375rem 1rem;
+            color: _statics(cardFontColor);
+            font-size: 0.875rem;
+            font-stretch: semi-condensed;
+        }
+        .card-body .list-group .list-group-item {
+            border: none;
+            border-bottom: 1px solid _statics(cityBorderColor);
+            margin: 0;
+            padding: 0.725rem 1rem;
+            background-color: _statics(cardBgColor);
+            &>a {
+                color: _statics(fontDarkColor);
+                &>p {
+                    font-size: 0.875rem;
+                    span {
+                        font-stretch: semi-condensed;
+                        padding-right: 0.625rem;
+                    }
+                }
+            }
+            &.info-item {
+                padding: 1.25rem 1rem;
+                &>img {
+                    width: 3.2rem;
+                    padding-right: 0.875rem;
+                }
+                &>.permission-desc {
+                    font-size: 0.725rem;
+                    color: _statics(fontGreyColor);
+                    h4 {
+                        font-size: 1.125rem;
+                        color: _statics(fontDarkColor);
+                        font-weight: bold;
+                    }
+                }
+            }
+            &.order-vip-text {
+                font-size: 0.875rem;
+                color: _statics(fontDarkColor);
+            }
+            &.order-vip-desc {
+                p {
+                    font-size: 0.9375rem;
+                    font-stretch: semi-condensed;
+                    color: _statics(fontDarkColor);
+                    span {
+                        color: _statics(fontRedColor);
+                        font-weight: bold;
+                        font-size: 1.125rem;
+                    }
+                }
+                &>.order-btn {
+                    font-size: 0.875rem;
+                    border-radius: 0.525rem !important;
+                    padding: 0.225rem 0.75rem;
+                }
+            }
+        }
+    }
+    #invoice-record-container {
+        position: absolute;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1090;
+        overflow-y: scroll;
+        background-color: _statics(subCardBgColor);
+        &>.main-container {
+            height: 100vh;
+        }
+        .invoice-record-card {
+            border: none;
+            background-color: _statics(subCardBgColor);
+            padding: 0.725rem 1rem;
+            img {
+                width: 11.5rem;
+            }
+            P {
+                color: _statics(fontGreyerColor);
+                font-stretch: semi-condensed;
+                padding-top: 1.25rem;
+                padding-bottom: 0.225rem;
+                font-size: 1.075rem;
+            }
+        }
+    }
+    #answer-detail-container {
+        position: absolute;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1090;
+        overflow-y: scroll;
+        background-color: _statics(subCardBgColor);
+        .answer-detail-card {
+            border: none;
+            background-color: _statics(subCardBgColor);
+            .card-body {
+                padding: 0.625rem 1rem;
+                font-size: 0.925rem;
+                color: _statics(fontDarklessColor);
+                h4 {
+                    font-size: 1.125rem;
+                    font-weight: bold;
+                    padding-bottom: 0.125rem;
+                    color: _statics(fontDarkColor);
+                }
+                h6 {
+                    padding-bottom: 1.125rem;
+                    &.small-gap {
+                        padding-bottom: 0.125rem;
+                    }
+                }
+                ul {
+                    padding-bottom: 1.125rem;
+                    color: _statics(fontGreyerColor);
+                    li {
+                        font-size: 0.875rem;
+                        padding: 0.0625rem 0 0.0625rem 0.75rem;
+                    }
+                }
+                p {
+                    padding: 0.875rem 1.875rem 1.25rem;
+                    color: _statics(fontGreyColor);
+                    font-size: 0.75rem;
+                }
+            }
+        }
+    }
+    .topup-balance-container {
+        position: absolute;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1090;
+        overflow-y: scroll;
+        background-color: _statics(subCardBgColor) !important;
+        &>.main-container {
+            height: 100vh;
+        }
+        .topup-balance-card {
+            border: none;
+            background-color: _statics(subCardBgColor);
+            &>.card-header {
+                padding: 0.375rem 1rem;
+                color: _statics(cardFontColor);
+                font-size: 0.675rem;
+                background-color: _statics(cardHeaderColor);
+                border-bottom: 1px solid _statics(cityBorderColor);
+                &:first-child {
+                    border-radius: 0;
+                }
+            }
+            &>.card-body {
+                padding: 0.725rem 1rem;
+                .topup-btn {
+                    font-size: 0.875rem;
+                    border-radius: 0.275rem !important;
+                    margin-top: 1.125rem;
+                    margin-bottom: 1.125rem;
+                }
+            }
+        }
+        .topup-notice-card {
+            border: none;
+            background-color: transparent;
+            &>.card-body {
+                padding: 0.725rem 1rem;
+                font-size: 0.775rem;
+                color: _statics(fontGreyestColor);
+                h3 {
+                    font-size: 1.125rem;
+                    font-weight: bold;
+                    text-align: center;
+                    padding-top: 0.875rem;
+                    padding-bottom: 0.575rem;
+                }
+                &>p {
+                    padding: 0.0625rem 0 0.0625rem 2.25rem;
+                }
+            }
+        }
+    }
+}
+
+.benefit-container {
+    .router-fade-enter-active,
+    .router-fade-leave-active {
+        transition: opacity .3s;
+    }
+    .router-fade-enter,
+    .router-fade-leave-active {
+        opacity: 0;
+    }
+    .router-slid-enter-active,
+    .router-slid-leave-active {
+        transition: all .4s;
+    }
+    .router-slid-enter,
+    .router-slid-leave-active {
+        transform: translate3d(2rem, 0, 0);
+        opacity: 0;
+    }
+    #benefit-init-container {
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 100%;
+        .benefit-content-card {
+            border: none;
+            @include vendor('flex',
+            '1');
+            &>.card-header {
+                border-bottom: 1px solid _statics(cityBorderColor);
+                p {
+                    @include vendor('flex',
+                    '1');
+                    color: _statics(fontDarklessColor);
+                    font-size: 0.9375rem;
+                    font-stretch: semi-condensed;
+                    &.active-show {
+                        text-decoration: underline;
+                        color: _statics(highlightColor);
+                    }
+                }
+            }
+            &>.card-body {
+                overflow-y: scroll;
+                overflow-x: hidden;
+                padding-bottom: 2.875rem;
+                background-color: _statics(subCardBgColor) !important;
+                .redpockets-container {
+                    overflow-y: scroll;
+                    overflow-x: hidden;
+                    .row {
+                        margin: 0;
+                        padding: 0;
+                    }
+                    .redpocket-title-container {
+                        padding: 0.75rem 1rem 0.425rem;
+                        color: _statics(fontGreyerColor);
+                        font-size: 0.825rem;
+                        font-stretch: semi-condensed;
+                        text-transform: uppercase;
+                        i.fa-question-circle-o {
+                            font-size: 0.935rem;
+                            margin-right: 0.375rem;
+                        }
+                        &>p {
+                            color: _statics(fontRedColor);
+                        }
+                    }
+                    .redpocket-item {
+                        padding: 0.5255rem 1rem;
+                        &>.redpocket-card {
+                            background: #fff url('../images/hongbao-border.png') repeat-x;
+                            background-size: 0.5rem 0.275rem;
+                            color: _statics(fontDarkColor);
+                            border-radius: 0.575rem;
+                            background-color: transparentize( _statics(fontRedColor), 0.92);
+                            border: 1px solid transparentize( _statics(fontGreyColor), 0.35);
+                            border-top: none;
+                            padding: 0.675rem 0.825rem;
+                            width: 100%;
+                            &>.amount-detail {
+                                font-size: 0.575rem;
+                                color: _statics(fontGreyColor);
+                                padding-right: 0.9375rem;
+                                &>p:first-child {
+                                    color: _statics(fontRedColor);
+                                    font-size: 1.125rem;
+                                    &>span:nth-child(2) {
+                                        font-size: 2.75rem;
+                                    }
+                                }
+                            }
+                            &>.redpocket-detail {
+                                @include vendor('flex',
+                                '1');
+                                padding-left: 0.9375rem;
+                                border-left: 1px solid transparentize( _statics(fontGreyColor), 0.75);
+                                h4 {
+                                    font-size: 1.125rem;
+                                    color: _statics(fontDarkColor);
+                                    font-weight: bold;
+                                    padding-bottom: 0.125rem;
+                                }
+                                &>p {
+                                    font-size: 0.675rem;
+                                    color: _statics(fontGreyColor);
+                                }
+                            }
+                            &>p {
+                                color: _statics(fontRedColor);
+                                font-size: 1.125rem;
+                            }
+                        }
+                        &>p {
+                            font-size: 0.675rem;
+                            color: _statics(fontGreyerColor);
+                            padding-top: 0.475rem;
+                        }
+                    }
+                    .hb-history-container {
+                        font-size: 0.825rem;
+                        color: _statics(fontGreyerColor);
+                        padding-top: 1.75rem;
+                        i.fa-chevron-right {
+                            margin-left: 0.375rem;
+                        }
+                    }
+                    .benefits-footer {
+                        color: _statics(fontDarkColor);
+                        border: none;
+                        border-top: 1px solid _statics(cardBorderColor);
+                        background-color: _statics(footerBgColor);
+                        .footer-item {
+                            padding-top: 0.775rem;
+                            padding-bottom: 0.725rem;
+                            border-right: 1px solid transparentize(_statics(cardBorderColor), 0.5);
+                            text-align: center;
+                            &:last-child {
+                                border-right: none;
+                            }
+                            p {
+                                font-size: 0.875rem;
+                                font-stretch: condensed;
+                            }
+                        }
+                    }
+                }
+                .vouchers-container {
+                    .voucher-content-card {
+                        border: none;
+                        background-color: _statics(subCardBgColor);
+                        .card-header {
+                            background-color: transparent;
+                            border: none;
+                            .coupon-detail-link {
+                                padding: 0.75rem 1rem 0.425rem;
+                                color: _statics(fontRedColor);
+                                font-size: 0.825rem;
+                                font-stretch: semi-condensed;
+                                text-transform: uppercase;
+                                i.fa-question-circle-o {
+                                    font-size: 0.935rem;
+                                    margin-right: 0.375rem;
+                                }
+                            }
+                        }
+                        .card-body {
+                            padding: 0.725rem 1rem;
+                            img {
+                                width: 11.5rem;
+                                padding-top: 2.75rem;
+                            }
+                            P {
+                                color: _statics(fontDarklessColor);
+                                font-stretch: semi-condensed;
+                                padding-top: 0.675rem;
+                                padding-bottom: 0.225rem;
+                                font-size: 1.075rem;
+                                &.small-notice-text {
+                                    font-size: 0.695rem;
+                                    color: _statics(fontGreyestColor);
+                                    padding-top: 0;
+                                    padding-bottom: 0.9375rem;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #benefit-detail-container {
+        position: absolute;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1090;
+        overflow-y: scroll;
+        background-color: _statics(subCardBgColor);
+        .benefit-detail-card {
+            border: none;
+            background-color: _statics(subCardBgColor);
+            .card-body {
+                padding: 0.625rem 1rem;
+                font-size: 0.925rem;
+                color: _statics(fontDarklessColor);
+                h4 {
+                    font-size: 1.125rem;
+                    font-weight: bold;
+                    padding-bottom: 0.125rem;
+                    color: _statics(fontDarkColor);
+                }
+                h6 {
+                    padding-bottom: 1.125rem;
+                    &.small-gap {
+                        padding-bottom: 0.125rem;
+                    }
+                }
+                ul {
+                    padding-bottom: 1.125rem;
+                    color: _statics(fontGreyerColor);
+                    li {
+                        font-size: 0.875rem;
+                        padding: 0.0625rem 0 0.0625rem 0.75rem;
+                    }
+                }
+            }
+        }
+    }
+    #hb-history-container {
+        position: absolute;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 2008;
+        background-color: _statics(subCardBgColor);
+        .redpocket-history-card {
+            .card-body {
+                padding-top: 0.725rem;
+                padding-bottom: 0.725rem;
+                overflow-y: scroll;
+                overflow-x: hidden;
+                .row {
+                    margin: 0;
+                    padding: 0;
+                }
+                .redpocket-history-item {
+                    margin: 0 1rem 1.051rem;
+                    border-radius: 0.575rem;
+                    border: 1px solid transparentize( _statics(fontGreyColor), 0.35);
+                    &>.redpocket-card {
+                        background: #fff url('../images/expired-border.png') repeat-x;
+                        background-size: 0.5rem 0.275rem;
+                        color: _statics(fontDarkColor);
+                        border-radius: 0.575rem;
+                        border-bottom: 1px solid _statics(cityBorderColor);
+                        background-color: transparentize( _statics(fontGreyColor), 0.9);
+                        border-top: none;
+                        padding: 0.675rem 0.825rem;
+                        width: 100%;
+                        &>.amount-detail {
+                            font-size: 0.575rem;
+                            color: _statics(fontGreyColor);
+                            padding-right: 0.9375rem;
+                            &>p:first-child {
+                                color: _statics(fontGreyestColor);
+                                font-size: 1.125rem;
+                                &>span:nth-child(2) {
+                                    font-size: 2.75rem;
+                                }
+                            }
+                        }
+                        &>.redpocket-detail {
+                            @include vendor('flex',
+                            '1');
+                            padding-left: 0.9375rem;
+                            border-left: 1px solid transparentize( _statics(fontGreyColor), 0.75);
+                            h4 {
+                                font-size: 1.125rem;
+                                color: _statics(fontGreyerColor);
+                                font-weight: bold;
+                                padding-bottom: 0.125rem;
+                            }
+                            &>p {
+                                font-size: 0.675rem;
+                                color: _statics(fontGreyColor);
+                            }
+                        }
+                        &>img {
+                            width: 4.75rem;
+                            @include vendor('filter',
+                            'grayscale(100%)');
+                        }
+                    }
+                    &>p {
+                        font-size: 0.675rem;
+                        color: _statics(fontGreyerColor);
+                        padding-top: 0.275rem;
+                        padding-bottom: 0.275rem;
+                    }
+                }
+            }
+        }
+    }
+    #hb-exchange-container {
+        position: absolute;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 2010;
+        overflow-y: scroll;
+        background-color: _statics(subCardBgColor);
+        .hb-exchange-card {
+            border: none;
+            background-color: _statics(subCardBgColor);
+            &>.card-body {
+                padding: 0.725rem 1rem;
+                .captcha-img {
+                    background: transparentize( _statics(subBtnBgColor), 0.75);
+                    padding: 0.0625rem;
+                }
+                .refresh-text {
+                    color: _statics(fontGreyerColor);
+                    font-size: 0.875rem;
+                    font-stretch: semi-condensed;
+                    text-transform: uppercase;
+                }
+                .filled-btn {
+                    margin-top: 0.875rem;
+                }
+            }
+        }
+    }
+    #recommend-container {
+        position: absolute;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 2012;
+        background-color: _statics(subCardBgColor);
+        .recommend-content-card {
+            border: none;
+            background-color: _statics(subCardBgColor);
+            &>.card-body {
+                padding: 0.725rem 1rem;
+                .invite-section {
+                    font-size: 0.9375rem;
+                    font-stretch: semi-condensed;
+                    color: _statics(fontDarkColor);
+                    padding: 0.875rem 0.475rem;
+                    border-bottom: 1px solid _statics(cardBorderColor);
+                }
+                .invite-summary {
+                    font-size: 0.9375rem;
+                    font-stretch: semi-condensed;
+                    color: _statics(fontDarklessColor);
+                    padding: 0.875rem 0.475rem;
+                    border-bottom: 1px solid _statics(cardBorderColor);
+                    &>.summary-item {
+                        @include vendor('flex',
+                        '1');
+                        border-right: 1px solid transparentize( _statics(fontGreyColor), 0.65);
+                        &:last-child {
+                            border-right: none;
+                        }
+                        &>.summary-detail {
+                            padding-top: 0.375rem;
+                            text-transform: uppercase;
+                            font-size: 0.775rem;
+                            &>span {
+                                color: _statics(fontRedColor);
+                                font-weight: bold;
+                                font-size: 0.9375rem;
+                            }
+                        }
+                    }
+                }
+                .transition-title {
+                    font-size: 0.9375rem;
+                    font-stretch: semi-condensed;
+                    color: _statics(fontDarklessColor);
+                    padding: 0.875rem 0.475rem;
+                }
+                .transition-tips {
+                    padding-top: 1.675rem;
+                    &>img {
+                        width: 3.825rem;
+                    }
+                    &>span {
+                        font-size: 0.9375rem;
+                        font-stretch: semi-condensed;
+                        color: _statics(fontGreyestColor);
+                        padding-top: 0.475rem;
+                        text-transform: uppercase;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.confirm-order-container {
+    background-color: _statics(subCardBgColor) !important;
+    .router-slid-enter-active,
+    .router-slid-leave-active {
+        transition: all 0.4s;
+    }
+    .router-slid-enter,
+    .router-slid-leave-active {
+        transform: translate3d(2rem, 0, 0);
+        opacity: 0;
+    }
+    .fade-enter-active,
+    .fade-leave-active {
+        transition: opacity 0.5s;
+    }
+    .fade-enter,
+    .fade-leave-active {
+        opacity: 0;
+    }
+    .slid-up-enter-active,
+    .slid-up-leave-active {
+        transition: all 0.3s;
+    }
+    .slid-up-enter,
+    .slid-up-leave-active {
+        transform: translate3d(0, 16rem, 0)
+    }
+    #confirm-order-init-container {
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 100%;
+        background-color: _statics(subCardBgColor) !important;
+        .order-user-info-card {
+            border: none;
+            border-bottom: 1px solid _statics(cardBorderColor);
+            &>.card-body>a {
+                padding: 1.25rem 1rem;
+                &>i.fa-map-marker {
+                    color: _statics(fontRedColor);
+                    font-size: 2.125rem;
+                }
+                &>.user-info {
+                    @include vendor ('flex',
+                    '1');
+                    color: _statics(fontDarkColor);
+                    padding-left: 0.875rem;
+                    color: _statics(fontDarkColor);
+                    font-stretch: semi-condensed;
+                    font-size: 0.9375rem;
+                    &>p:first-child {
+                        color: _statics(fontDarkColor);
+                        font-stretch: semi-condensed;
+                        &>span:first-child {
+                            font-size: 1.25rem;
+                            font-weight: bold;
+                        }
+                        &>span:nth-child(2) {
+                            font-size: 1.125rem;
+                        }
+                        &>span:last-child {
+                            font-size: 0.9375rem;
+                            padding-left: 0.425rem;
+                            color: _statics(fontDarklessColor);
+                        }
+                    }
+                    &>p:last-child {
+                        color: _statics(fontGreyestColor);
+                        font-stretch: semi-condensed;
+                        font-size: 0.875rem;
+                        &>span:first-child {
+                            color: _statics(fontBrightColor);
+                            padding: 0.125rem 0.25rem 0;
+                            border-radius: 0.3rem;
+                            line-height: 0.75rem;
+                            height: 1.125rem;
+                        }
+                        &>span:last-child {
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            width: 14.75rem;
+                        }
+                    }
+                }
+                &>i.right-arrow {
+                    color: _statics(fontDarklessColor);
+                }
+            }
+        }
+        .order-content-card {
+            border: none;
+            background-color: _statics(subCardBgColor);
+            @include vendor('flex',
+            '1');
+            &>.card-body {
+                overflow-y: scroll;
+                overflow-x: hidden;
+                padding-bottom: 3.275rem;
+                background-color: _statics(subCardBgColor);
+                &>.delivery-mode {
+                    padding: 1.125rem 1rem;
+                    background-color: _statics(cardBgColor);
+                    border: none;
+                    border-left: 5px solid _statics(cardBorderColor);
+                    &>span {
+                        color: _statics(fontDarkColor);
+                        font-stretch: semi-condensed;
+                        font-size: 1.25rem;
+                        font-weight: bold;
+                        text-transform: uppercase;
+                    }
+                    &>.delivery-detail {
+                        color: _statics(fontRedColor);
+                        font-stretch: semi-condensed;
+                        text-align: right;
+                        &>p:first-child {
+                            font-size: 0.9735rem;
+                            padding-bottom: 0.275rem;
+                        }
+                        &>span:last-child {
+                            padding: 0.125rem 0.325rem;
+                            border-radius: 0.3rem;
+                            font-size: 0.75rem;
+                            color: _statics(fontBrightColor);
+                            background-color: _statics(subBtnBgColor);
+                        }
+                    }
+                }
+                &>.payment-method {
+                    font-size: 0.875rem;
+                    color: _statics(fontDarkColor);
+                    text-transform: uppercase;
+                    font-stretch: semi-condensed;
+                    background-color: _statics(cardBgColor);
+                    &>div {
+                        padding: 0.725rem 1rem;
+                        border: none;
+                        border-bottom: 1px solid _statics(cityBorderColor);
+                        margin: 0;
+                    }
+                }
+                &>.order-detail {
+                    &>.list-group .list-group-item {
+                        border: none;
+                        margin: 0;
+                        padding: 0.725rem 1rem;
+                        background-color: _statics(cardBgColor);
+                        color: _statics(fontDarkColor);
+                        font-stretch: semi-condensed;
+                        font-size: 0.875rem;
+                        text-transform: uppercase;
+                        &.order-title-item {
+                            padding-top: 1.125rem;
+                            padding-bottom: 1.125rem;
+                            font-weight: bold;
+                            font-size: 1.25rem;
+                            border-bottom: 1px solid _statics(cityBorderColor);
+                            img.shop-icon {
+                                width: 2.225rem;
+                                height: 2.225rem;
+                            }
+                        }
+                        &.food-content-item {
+                            padding-top: 0.575rem;
+                            padding-bottom: 0.575rem;
+                            &>span {
+                                @include vendor('flex',
+                                '1');
+                            }
+                            &>div {
+                                &>span:last-child {
+                                    width: 2.75rem;
+                                    text-align: right;
+                                    display: inline-block;
+                                    color: _statics(fontRedColor);
+                                }
+                            }
+                        }
+                        &.fee-item {
+                            padding-top: 0.575rem;
+                            padding-bottom: 0.575rem;
+                            span {
+                                @include vendor('flex',
+                                '1');
+                                &:last-child {
+                                    text-align: right;
+                                    color: _statics(fontRedColor);
+                                }
+                            }
+                        }
+                        &:last-child {
+                            padding: 0.725rem 1rem;
+                            border-top: 1px solid _statics(cityBorderColor);
+                        }
+                    }
+                }
+                &>.notes-detail {
+                    &>.list-group .list-group-item {
+                        border: none;
+                        border-bottom: 1px solid _statics(cityBorderColor);
+                        margin: 0;
+                        padding: 0.725rem 1rem;
+                        background-color: _statics(cardBgColor);
+                        color: _statics(fontDarkColor);
+                        font-stretch: semi-condensed;
+                        font-size: 0.875rem;
+                        text-transform: uppercase;
+                        &>a {
+                            color: _statics(fontDarkColor);
+                            &>p span {
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                white-space: nowrap;
+                                display: inline-block;
+                                width: 14.25rem;
+                                text-align: right;
+                            }
+                        }
+                        &:last-child {
+                            border-bottom: none;
+                        }
+                    }
+                }
+                &>.order-footer {
+                    color: _statics(fontDarkColor);
+                    border: none;
+                    border-top: 1px solid _statics(cardBorderColor);
+                    background-color: _statics(footerBgColor);
+                    height: 3.275rem;
+                    z-index: 1200;
+                    font-weight: bold;
+                    font-stretch: semi-condensed;
+                    &>p:first-child {
+                        font-size: 1.575rem;
+                        padding-left: 1rem;
+                        font-weight: normal;
+                        color: _statics(fontRedColor);
+                        &>span {
+                            font-weight: bold;
+                            color: _statics(fontDarkColor);
+                            font-size: 0.9375rem;
+                        }
+                    }
+                    &>p:last-child {
+                        font-size: 0.9375rem;
+                        text-align: center;
+                        padding-right: 1rem;
+                        padding-left: 1rem;
+                        border-left: 1px solid _statics(cardBorderColor);
+                        background-color: _statics(activeBorderColor);
+                        color: _statics(fontBrightColor);
+                        text-transform: uppercase;
+                    }
+                }
+            }
+        }
+        .payment-way-container {
+            min-height: 16rem;
+            background-color: _statics(subCardBgColor);
+            z-index: 2000;
+            &>h4 {
+                font-size: 1.125rem;
+                color: _statics(fontDarkColor);
+                text-transform: uppercase;
+                font-weight: bold;
+                padding: 0.725rem 1rem;
+                font-stretch: semi-condensed;
+            }
+            &>.list-group .list-group-item {
+                border: none;
+                border-bottom: 1px solid _statics(cityBorderColor);
+                margin: 0;
+                padding: 0.725rem 1rem;
+                background-color: _statics(cardBgColor);
+                &>p {
+                    color: _statics(fontGreyestColor);
+                    font-stretch: semi-condensed;
+                    font-size: 0.9735rem;
+                }
+                &>i.fa-check-circle {
+                    color: _statics(fontGreyestColor);
+                    font-size: 1.25rem;
+                }
+                &.chosed {
+                    p {
+                        color: _statics(fontDarklessColor);
+                    }
+                    i.fa-check-circle {
+                        color: _statics(fontRedColor);
+                    }
+                }
+            }
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1050;
+            background-color: transparentize(_statics(modalBgColor), 0.45);
+        }
+    }
+    #remark-container {
+        position: absolute;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 2008;
+        background-color: _statics(subCardBgColor);
+        .remark-content-card {
+            border: none;
+            background-color: _statics(subCardBgColor);
+            .card-body {
+                padding-top: 0.725rem;
+                padding-bottom: 0.725rem;
+                background-color: _statics(subCardBgColor);
+                .row {
+                    margin: 0;
+                    padding: 0;
+                }
+                &>.predefine-remark {
+                    padding: 0.725rem 1rem;
+                    background-color: _statics(cardBgColor);
+                    font-stretch: semi-condensed;
+                    h4 {
+                        font-size: 1.125rem;
+                        font-weight: bold;
+                        color: _statics(fontDarkColor);
+                        padding-bottom: 0.375rem;
+                        text-transform: uppercase;
+                    }
+                    .btn-group {
+                        margin-right: 0.75rem;
+                        margin-bottom: 0.575rem;
+                        &>.remark-icon {
+                            font-size: 0.875rem;
+                            background: transparent;
+                            border: 1px solid _statics(fontRedColor);
+                            color: _statics(fontRedColor);
+                            padding: 0.225rem 0.675rem;
+                            &:hover,
+                            &:focus,
+                            &:active,
+                            &.chosed {
+                                background-color: transparentize(_statics(fontRedColor), 0.775);
+                            }
+                        }
+                    }
+                }
+                &>.other-remark {
+                    padding: 0.725rem 1rem;
+                    background-color: _statics(cardBgColor);
+                    font-stretch: semi-condensed;
+                    margin-top: 1.125rem;
+                    @include vendor('flex',
+                    '1');
+                    h4 {
+                        font-size: 1.125rem;
+                        font-weight: bold;
+                        color: _statics(fontDarkColor);
+                        padding-bottom: 0.375rem;
+                        text-transform: uppercase;
+                    }
+                    .remark-input {
+                        font-size: 0.875rem;
+                        color: _statics(fontDarklessColor);
+                        margin-bottom: 1.125rem;
+                    }
+                }
+            }
+        }
+    }
+    #order-invoice-container {
+        position: absolute;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 2010;
+        background-color: _statics(subCardBgColor);
+        .order-invoice-card {
+            border: none;
+            background-color: _statics(subCardBgColor);
+            &>.card-body {
+                padding-top: 0.725rem;
+                padding-bottom: 0.725rem;
+                .invoice-require-item {
+                    padding: 0.725rem 1rem;
+                    font-size: 0.875rem;
+                    font-weight: bold;
+                    color: _statics(fontDarkColor);
+                    text-transform: uppercase;
+                    background-color: _statics(cardBgColor);
+                    &>i.fa-check-circle {
+                        font-size: 1.75rem;
+                        &.chosed {
+                            color: _statics(fontRedColor);
+                        }
+                    }
+                }
+                &>.filled-btn {
+                    margin: 1.125rem 1rem;
+                }
+            }
+        }
+    }
+    #order-choose-address-container {
+        position: absolute;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 2015;
+        background-color: _statics(subCardBgColor);
+        .choose-address-card {
+            border: none;
+            background-color: _statics(subCardBgColor);
+            &>.card-body {
+                overflow-y: scroll;
+                overflow-x: hidden;
+                padding-bottom: 3.75rem;
+                background-color: _statics(subCardBgColor);
+                .list-group .list-group-item {
+                    border: none;
+                    border-bottom: 1px solid _statics(cityBorderColor);
+                    margin: 0;
+                    background-color: _statics(cardBgColor);
+                    padding: 1.25rem 1rem;
+                    color: _statics(fontDarkColor);
+                    &>i.fa-check-circle {
+                        font-size: 1.75rem;
+                        &.chosed {
+                            color: _statics(fontRedColor);
+                        }
+                    }
+                    &>.user-info {
+                        @include vendor ('flex',
+                        '1');
+                        padding-left: 0.875rem;
+                        &>p:first-child {
+                            font-stretch: semi-condensed;
+                            &>span:first-child {
+                                font-size: 1.25rem;
+                                font-weight: bold;
+                            }
+                            &>span:nth-child(2) {
+                                font-size: 1.125rem;
+                            }
+                            &>span:last-child {
+                                font-size: 0.9375rem;
+                                padding-left: 0.425rem;
+                                color: _statics(fontDarklessColor);
+                            }
+                        }
+                        &>p:last-child {
+                            color: _statics(fontGreyestColor);
+                            font-stretch: semi-condensed;
+                            font-size: 0.875rem;
+                            &>span:first-child {
+                                color: _statics(fontBrightColor);
+                                padding: 0.125rem 0.25rem 0;
+                                border-radius: 0.3rem;
+                                line-height: 0.75rem;
+                                height: 1.125rem;
+                            }
+                            &>span:last-child {
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                white-space: nowrap;
+                                width: 14.75rem;
+                            }
+                        }
+                    }
+                    &:last-child {
+                        border-bottom: none;
+                    }
+                    &.opacity {
+                        opacity: 0.65;
+                    }
+                }
+                &>.out-of-range {
+                    h4 {
+                        padding: 0 1rem 0.725rem;
+                        font-size: 1.125rem;
+                        font-weight: bold;
+                        color: _statics(fontGreyestColor);
+                        text-transform: uppercase;
+                        font-stretch: semi-condensed;
+                    }
+                }
+                &>.add-new-address {
+                    font-size: 1.0125rem;
+                    color: _statics(fontRedColor);
+                    font-stretch: semi-condensed;
+                    height: 3.75rem;
+                    z-index: 1200;
+                    border: none;
+                    border-top: 1px solid _statics(cardBorderColor);
+                    background-color: _statics(footerBgColor);
+                    text-transform: uppercase;
+                    i.fa-plus-circle {
+                        font-size: 1.25rem;
+                    }
+                }
+            }
+        }
+        #order-add-address-container {
+            position: absolute;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 2020;
+            background-color: _statics(subCardBgColor);
+            .add-address-card {
+                border: none;
+                background-color: _statics(subCardBgColor);
+                &>.card-body {
+                    background-color: _statics(subCardBgColor);
+                    &>.list-group .list-group-item {
+                        border: none;
+                        border-bottom: 1px solid _statics(cityBorderColor);
+                        margin: 0;
+                        background-color: _statics(cardBgColor);
+                        padding: 0.725rem 1rem;
+                        color: _statics(fontDarkColor);
+                        &>.input-group {
+                            font-stretch: semi-condensed;
+                            .input-group-prepend {
+                                width: 33.333%;
+                                span {
+                                    font-size: 0.875rem;
+                                    color: _statics(fontDarklessColor);
+                                    text-transform: uppercase;
+                                }
+                            }
+                            .input-group-append {
+                                i.fa-plus {
+                                    color: _statics(fontRedColor);
+                                }
+                            }
+                        }
+                        .app-input {
+                            font-stretch: semi-condensed;
+                            border-radius: 0.225rem;
+                            &.short-input {
+                                width: 66.667%;
+                            }
+                        }
+                        &>.delivery-item {
+                            font-stretch: semi-condensed;
+                            font-size: 0.875rem;
+                            span {
+                                color: _statics(fontDarklessColor);
+                                width: 33.333%;
+                                text-transform: uppercase;
+                            }
+                            p {
+                                color: _statics(fontRedColor);
+                                line-height: 2.5rem;
+                                height: 2.5rem;
+                                margin-top: 0.425rem;
+                                margin-bottom: 0.425rem;
+                                text-decoration: underline;
+                                width: 66.667%;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                white-space: nowrap;
+                            }
+                        }
+                        &>span {
+                            color: _statics(fontDarklessColor);
+                            width: 33.333%;
+                            text-transform: uppercase;
+                            font-stretch: semi-condensed;
+                            font-size: 0.875rem;
+                        }
+                        &>#addressTag {
+                            line-height: 2.5rem;
+                            height: 2.5rem;
+                            @include vendor ('flex',
+                            '1');
+                            .form-check-label {
+                                font-stretch: semi-condensed;
+                                font-size: 0.875rem;
+                                color: _statics(fontDarkColor);
+                            }
+                        }
+                        &>#gender {
+                            width: 66.667%;
+                            line-height: 2.5rem;
+                            height: 2.5rem;
+                            .form-check-label {
+                                font-stretch: semi-condensed;
+                                font-size: 0.875rem;
+                                color: _statics(fontDarkColor);
+                            }
+                        }
+                    }
+                    &>.filled-btn {
+                        margin: 1.125rem 1rem;
+                    }
+                }
+            }
+            #order-search-address-container {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 2025;
+                background-color: _statics(subCardBgColor);
+                &>.main-container {
+                    background-color: _statics(subCardBgColor);
+                }
+                .search-address-card {
+                    margin-top: 1rem;
+                    border: none;
+                    background-color: _statics(subCardBgColor);
+                    .card-body {
+                        padding: 0 1rem 0.725rem;
+                        .input-group {
+                            margin-bottom: 1rem;
+                        }
+                        .search-result {
+                            margin: 0 -1rem;
+                            @include vendor ('flex',
+                            '1');
+                            .warning-text-title {
+                                border-top: 1px solid _statics(cardBorderColor);
+                                border-bottom: 1px solid _statics(cityBorderColor);
+                                color: _statics(fontRedColor);
+                                background-color: _statics(cardHeaderColor);
+                                padding: 0.375rem 1rem;
+                                font-size: 0.625rem;
+                            }
+                            .warning-text {
+                                margin-top: 6.25rem;
+                                P {
+                                    color: _statics(fontGreyerColor);
+                                    font-stretch: semi-condensed;
+                                    padding-bottom: 0.225rem;
+                                    font-size: 0.825rem;
+                                    text-transform: uppercase;
+                                }
+                            }
+                            .list-group {
+                                overflow-y: scroll;
+                                overflow-x: hidden;
+                                @include vendor ('flex',
+                                '1');
+                                .list-group-item {
+                                    border: none;
+                                    color: _statics(fontDarkColor);
+                                    padding-top: 1rem;
+                                    padding-bottom: 0.475rem;
+                                    border-bottom: 1px solid _statics(cityBorderColor);
+                                    margin: 0;
+                                    background-color: _statics(cardBgColor);
+                                    h4 {
+                                        font-weight: bold;
+                                    }
+                                    p {
+                                        color: _statics(fontGreyerColor);
+                                        font-size: 0.75rem;
+                                        margin-top: 0.425rem;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #order-payment-container {
+        position: absolute;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 2030;
+        background-color: _statics(subCardBgColor);
+        .order-payment-card {
+            border: none;
+            background-color: _statics(subCardBgColor);
+            &>.card-header {
+                border: none;
+                background-color: _statics(cardBgColor);
+                font-stretch: semi-condensed;
+                padding: 0.725rem 1rem;
+                &>h4 {
+                    font-size: 1.125rem;
+                    color: _statics(fontDarkColor);
+                    text-transform: uppercase;
+                    font-weight: bold;
+                    font-stretch: semi-condensed;
+                }
+                &>p {
+                    font-size: 3.125rem;
+                    color: _statics(fontRedColor);
+                    font-weight: bold;
+                    line-height: 1;
+                    padding: 0.75rem 0 0.875rem;
+                }
+                &>.price-detail {
+                    font-stretch: semi-condensed;
+                    font-size: 0.9375rem;
+                    color: _statics(fontGreyestColor);
+                    padding-top: 0.375rem;
+                    text-transform: uppercase;
+                    &>span:last-child {
+                        color: _statics(fontRedColor);
+                    }
+                }
+            }
+            &>.card-body {
+                &>h4 {
+                    font-size: 1.125rem;
+                    color: _statics(fontDarkColor);
+                    text-transform: uppercase;
+                    font-weight: bold;
+                    font-stretch: semi-condensed;
+                    padding: 0.725rem 1rem;
+                }
+                &>.list-group .list-group-item {
+                    border: none;
+                    border-bottom: 1px solid _statics(cityBorderColor);
+                    margin: 0;
+                    padding: 1.25rem 1rem;
+                    background-color: _statics(cardBgColor);
+                    color: _statics(fontGreyestColor);
+                    text-transform: uppercase;
+                    font-size: 0.9375rem;
+                    &>div img {
+                        width: 3.125rem;
+                    }
+                    &>i.fa-check-circle {
+                        font-size: 1.75rem;
+                    }
+                    &.chosed {
+                        color: _statics(fontRedColor);
+                    }
+                }
+                &>.filled-btn {
+                    margin: 1.125rem 1rem;
+                }
+            }
+        }
+    }
+    #order-validation-container {
+        position: absolute;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 2040;
+        background-color: _statics(subCardBgColor);
+        .order-validation-card {
+            border: none;
+            background-color: _statics(subCardBgColor);
+            &>.card-header {
+                border: none;
+                background-color: _statics(subCardBgColor);
+                font-stretch: semi-condensed;
+                padding: 0.725rem 1rem 0;
+                &>p {
+                    font-size: 0.875rem;
+                    color: _statics(fontDarklessColor);
+                    font-weight: bold;
+                    line-height: 1;
+                    font-stretch: semi-condensed;
+                    text-transform: uppercase;
+                    padding-top: 0.75rem;
+                    &>span {
+                        text-decoration: underline;
+                        color: _statics(fontRedColor);
+                    }
+                }
+                &>.voice-tip {
+                    font-size: 0.875rem;
+                    color: _statics(fontGreyestColor);
+                    line-height: 1;
+                    font-stretch: semi-condensed;
+                    text-transform: uppercase;
+                    padding-top: 0.75rem;
+                    text-transform: uppercase;
+                    &>p {
+                        padding-bottom: 0.375rem;
+                        padding-left: 0.75rem;
+                        &>span {
+                            font-weight: bold;
+                            color: _statics(fontRedColor);
+                        }
+                    }
+                }
+            }
+            &>.card-body {
+                padding: 0.725rem 1rem;
+                @include vendor ('flex',
+                '1');
+                .frame-btn {
+                    font-size: 0.875rem;
+                    border-radius: 0.525rem !important;
+                }
+                .filled-btn {
+                    margin-top: 0.875rem;
+                }
+            }
+        }
+    }
+}
+
+.cate-food-container {
+    .router-slid-enter-active,
+    .router-slid-leave-active {
+        transition: all 0.4s;
+    }
+    .router-slid-enter,
+    .router-slid-leave-active {
+        transform: translate3d(2rem, 0, 0);
+        opacity: 0;
+    }
+    .fade-enter-active,
+    .fade-leave-active {
+        transition: opacity 0.3s;
+    }
+    .fade-enter,
+    .fade-leave-active {
+        opacity: 0;
+    }
+    .fade-choose-enter-active,
+    .fade-choose-leave-active {
+        transition: opacity 0.5s;
+    }
+    .fade-choose-leave,
+    .fade-choose-leave-active {
+        display: none;
+    }
+    .fade-choose-enter,
+    .fade-choose-leave-active {
+        opacity: 0;
+    }
+    &>.main-container {
+        height: 100vh;
+    }
+    .cate-sortable-card {
+        border: none;
+        background-color: _statics(subCardBgColor);
+        &>.card-body {
+            background-color: _statics(subCardBgColor);
+            &>.sortable-title {
+                padding: 0.725rem 1rem;
+                font-size: 0.9375rem;
+                font-stretch: semi-condensed;
+                color: _statics(fontDarkColor);
+                border: none;
+                border-bottom: 1px solid transparentize( _statics(fontGreyColor), 0.35);
+                background-color: _statics(cardBgColor);
+                p {
+                    @include vendor ('flex',
+                    '1');
+                    border: none;
+                    border-right: 1px solid transparentize( _statics(fontGreyColor), 0.35);
+                    text-align: center;
+                    text-transform: uppercase;
+                    &:last-child {
+                        border-right: none;
+                    }
+                    &.active {
+                        color: _statics(fontRedColor);
+                    }
+                }
+            }
+            &>.sortable-panel {
+                position: absolute;
+                right: 0;
+                width: 100%;
+                z-index: 10;
+                &.auto-sort {
+                    &>.list-group .list-group-item {
+                        border: none;
+                        margin: 0;
+                        padding: 0.725rem 1rem;
+                        background-color: _statics(cardBgColor);
+                        border-bottom: 1px solid _statics(cityBorderColor);
+                        color: _statics(fontDarkColor);
+                        font-stretch: semi-condensed;
+                        font-size: 0.875rem;
+                        text-transform: uppercase;
+                        &.chosed {
+                            color: _statics(fontRedColor);
+                        }
+                        i.fa-fire {
+                            color: _statics(fontRedColor);
+                        }
+                        i.fa-clock-o,
+                        i.fa-map-marker {
+                            color: _statics(fontPromColor);
+                        }
+                        i.fa-star {
+                            color: _statics(ratingColor);
+                        }
+                    }
+                }
+                &.activity-sort {
+                    background-color: _statics(subCardBgColor);
+                    padding: 0.725rem 1rem;
+                    h4 {
+                        font-size: 0.9375rem;
+                        color: _statics(fontDarkColor);
+                        font-stretch: semi-condensed;
+                        text-transform: uppercase;
+                    }
+                    .row p {
+                        font-size: 0.9375rem;
+                        color: _statics(fontDarkColor);
+                        font-stretch: semi-condensed;
+                        border: 1px solid transparentize( _statics(fontGreyColor), 0.35);
+                        padding: 0.225rem 0.475rem;
+                        margin-right: 1.25rem;
+                        margin-bottom: 0.675rem;
+                        border-radius: 0.375rem;
+                        background-color: _statics(labelBgColor);
+                        i.fa {
+                            color: _statics(fontRedColor);
+                            width: 1.25rem;
+                            padding: 0.125rem;
+                            margin-right: 0.375rem;
+                        }
+                        span.name-icon {
+                            padding: 0.125rem;
+                            border-radius: 0.25rem;
+                            margin-right: 0.375rem;
+                            width: 1.25rem;
+                            border-style: solid;
+                            border-width: 1px;
+                            line-height: 1;
+                        }
+                    }
+                    .info-btn {
+                        margin: 0 0.475rem;
+                    }
+                }
+                &.cate-sort {
+                    overflow-y: scroll;
+                    overflow-x: hidden;
+                    height: 24rem;
+                    background-color: _statics(cardBgColor);
+                    .cate-container {
+                        .col-6.cate-detail-container {
+                            overflow-y: scroll;
+                            overflow-x: hidden;
+                            .cate-detail-item {
+                                color: _statics(fontGreyerColor);
+                                font-size: 0.875rem;
+                                padding: 0.75rem 1rem 0.75rem 1.225rem;
+                                margin: 0;
+                                border-bottom: 1px solid _statics(cityBorderColor);
+                                &.chosed {
+                                    color: _statics(fontRedColor);
+                                }
+                            }
+                        }
+                        .cate-list-container {
+                            @include vendor ('flex',
+                            '1');
+                            .cate-list-item {
+                                color: _statics(fontGreyerColor);
+                                font-size: 0.875rem;
+                                padding: 0.75rem 1.225rem 0.75rem 0.775rem;
+                                margin: 0;
+                                border-right: 1px solid _statics(cityBorderColor);
+                                border-bottom: 1px solid _statics(cityBorderColor);
+                                border-left: 0.225rem solid _statics(fontBrightColor);
+                                img {
+                                    height: 1rem;
+                                    margin-right: 0.625rem;
+                                }
+                                span:first-child {
+                                    text-overflow: ellipsis;
+                                    overflow: hidden;
+                                    white-space: nowrap;
+                                }
+                                &>p {
+                                    @include vendor ('flex',
+                                    '1');
+                                    text-align: right;
+                                    .cate-num {
+                                        background-color: transparentize( _statics(fontGreyColor), 0.35);
+                                        text-align: center;
+                                        border-radius: 0.275rem;
+                                        font-size: 0.675rem;
+                                        padding: 0.125rem 0.225rem;
+                                        color: _statics(fontDarklessColor);
+                                    }
+                                }
+                                &.active-cate {
+                                    border-left-color: _statics(activeBorderColor);
+                                    span:first-child {
+                                        font-weight: bold;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .shops-card {
+        @include vendor ('flex',
+        '1');
+        overflow-x: hidden;
+        overflow-y: scroll;
+        border: none;
+    }
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 8;
+        background-color: transparentize(_statics(modalBgColor), 0.45);
+    }
+}
+
+.order-container {
+    .router-slid-enter-active,
+    .router-slid-leave-active {
+        transition: all 0.4s;
+    }
+    .router-slid-enter,
+    .router-slid-leave-active {
+        transform: translate3d(2rem, 0, 0);
+        opacity: 0;
+    }
+    #order-init-container {
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 100%;
+        background-color: _statics(subCardBgColor);
+        .order-content-card {
+            border: none;
+            &>.card-body {
+                overflow-y: scroll;
+                overflow-x: hidden;
+                padding-bottom: 4.185rem;
+                background-color: _statics(subCardBgColor);
+                &>.list-group .list-group-item {
+                    border: none;
+                    border-bottom: 1px solid _statics(cityBorderColor);
+                    margin: 0;
+                    padding: 0.725rem 1rem;
+                    background-color: _statics(cardBgColor);
+                    .row {
+                        border: none;
+                        color: _statics(fontDarkColor);
+                        align-items: center;
+                        .col-3,
+                        .col-9 {
+                            padding: 0;
+                        }
+                        img {
+                            width: 4.25rem;
+                            height: 4.25rem;
+                            display: block;
+                        }
+                        .order-detail-info {
+                            h4 {
+                                color: _statics(fontDarkColor);
+                                font-weight: bold;
+                                font-size: 0.9375rem;
+                                font-stretch: semi-condensed;
+                                text-transform: uppercase;
+                                &>span:first-child {
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                    white-space: nowrap;
+                                    width: 3.85rem;
+                                }
+                                &>span:last-child {
+                                    @include vendor ('flex',
+                                    '1');
+                                }
+                            }
+                            &>p {
+                                color: _statics(fontGreyColor);
+                                padding-top: 0.375rem;
+                                padding-bottom: 0.75rem;
+                                line-height: 1;
+                                font-size: 0.75rem;
+                            }
+                            &>div {
+                                font-size: 0.875rem;
+                                color: _statics(fontDarkColor);
+                                font-stretch: semi-condensed;
+                                text-transform: uppercase;
+                                &>p:last-child {
+                                    color: _statics(fontRedColor);
+                                    font-weight: bold;
+                                }
+                            }
+                        }
+                        .order-btn {
+                            font-size: 0.775rem;
+                            padding: 0.225rem 0.375rem;
+                            &.again {
+                                color: _statics(fontPromColor) !important;
+                                border-color: _statics(fontPromColor) !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #order-detail-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 2008;
+        background-color: _statics(subCardBgColor);
+        .order-detail-card {
+            border: none;
+            background-color: _statics(subCardBgColor);
+            overflow-y: scroll;
+            overflow-x: hidden;
+            .card-body {
+                padding: 0.725rem 1rem;
+                &>.order-detail-title {
+                    padding-bottom: 0.575rem;
+                    &>img {
+                        width: 3.475rem;
+                        height: 3.475rem;
+                        line-height: 3.475rem;
+                        border-radius: 50%;
+                    }
+                    &>p {
+                        color: _statics(fontDarkColor);
+                        font-weight: bold;
+                        font-size: 0.9375rem;
+                        font-stretch: semi-condensed;
+                        text-transform: uppercase;
+                        padding-top: 0.875rem;
+                        padding-bottom: 0.375rem;
+                        line-height: 1;
+                        &.timer {
+                            font-size: 0.75rem;
+                            font-weight: normal;
+                            padding-top: 0.375rem;
+                            padding-bottom: 1.125rem;
+                            color: _statics(fontRedColor);
+                        }
+                    }
+                    &>.order-btn {
+                        font-size: 0.775rem;
+                        padding: 0.225rem 0.375rem;
+                        color: _statics(fontPromColor) !important;
+                        border-color: _statics(fontPromColor) !important;
+                    }
+                }
+                &>.order-detail-list {
+                    background-color: _statics(cardBgColor);
+                    border-bottom: 1px solid _statics(cardBorderColor);
+                    &>div:first-child {
+                        padding: 0.675rem 1rem;
+                        font-weight: bold;
+                        font-size: 1.125rem;
+                        border-top: 1px solid _statics(cardBorderColor);
+                        border-bottom: 1px solid _statics(cityBorderColor);
+                        font-stretch: semi-condensed;
+                        color: _statics(fontDarkColor);
+                        img {
+                            width: 2.225rem;
+                            height: 2.225rem;
+                        }
+                        i.fa-chevron-right {
+                            text-align: right;
+                            @include vendor ('flex',
+                            '1');
+                        }
+                    }
+                    &>.list-group .list-group-item {
+                        border: none;
+                        margin: 0;
+                        padding: 0.725rem 1rem;
+                        background-color: _statics(cardBgColor);
+                        color: _statics(fontDarkColor);
+                        font-stretch: semi-condensed;
+                        font-size: 0.875rem;
+                        text-transform: uppercase;
+                        &.food-content-item {
+                            padding-top: 0.575rem;
+                            padding-bottom: 0.575rem;
+                            &>span {
+                                @include vendor('flex',
+                                '1');
+                            }
+                            &>div {
+                                &>span:last-child {
+                                    width: 2.75rem;
+                                    text-align: right;
+                                    display: inline-block;
+                                    color: _statics(fontRedColor);
+                                }
+                            }
+                        }
+                        &.fee-item {
+                            padding-top: 0.575rem;
+                            padding-bottom: 0.575rem;
+                            span {
+                                @include vendor('flex',
+                                '1');
+                                &:last-child {
+                                    text-align: right;
+                                    color: _statics(fontRedColor);
+                                }
+                            }
+                        }
+                        &:last-child {
+                            padding: 0.725rem 1rem;
+                            border-top: 1px solid _statics(cityBorderColor);
+                        }
+                    }
+                }
+                &>.other-detail {
+                    background-color: _statics(cardBgColor);
+                    border-bottom: 1px solid _statics(cardBorderColor);
+                    h4 {
+                        padding: 0.375rem 1rem;
+                        font-weight: bold;
+                        font-size: 1.125rem;
+                        font-stretch: semi-condensed;
+                        color: _statics(fontDarkColor);
+                        border-bottom: 1px solid _statics(cityBorderColor);
+                        text-transform: uppercase;
+                    }
+                    &>.list-group .list-group-item {
+                        border: none;
+                        margin: 0;
+                        padding: 0.725rem 1rem;
+                        background-color: _statics(cardBgColor);
+                        color: _statics(fontDarkColor);
+                        font-stretch: semi-condensed;
+                        font-size: 0.875rem;
+                        text-transform: uppercase;
+                        &>p:last-child {
+                            color: _statics(fontGreyestColor);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

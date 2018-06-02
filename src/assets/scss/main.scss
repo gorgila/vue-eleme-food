@@ -1,0 +1,11 @@
+$fa-font-path: "~font-awesome/fonts/";
+@import '~font-awesome/scss/font-awesome';
+@import './bases/vars';
+@import './bases/funcs';
+@import './bases/skel';
+@import './bases/mixins';
+@import './components/component';
+@include skel-breakpoints (( xlarge: '(max-width: 1680px)', large: '(max-width: 1280px)', medium: '(max-width: 980px)', small: '(max-width: 736px)', short: '(min-aspect-ratio: 16/7)', xshort: '(min-aspect-ratio: 16/6)'));
+@include skel-layout(( reset: 'full', boxModel: 'border'));
+@import './pages/root';
+@import './pages/pages';

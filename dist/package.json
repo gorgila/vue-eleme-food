@@ -1,0 +1,13 @@
+{
+    "name": "evo_blog",
+    "version": "1.0.0",
+    "description": "Building a blog for learning vue.",
+    "author": "Mengna Zhu",
+    "private": true,
+    "scripts": {
+        "postinstall": "npm install express"
+    },
+    "dependencies": {
+        "express": "^4.16.3"
+    }
+}
